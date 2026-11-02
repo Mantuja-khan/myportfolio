@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2 } from "lucide-react";
 import { PageHeading } from "@/components/site-layout";
 import aboutImg from "@/assets/about-illustration.png";
+import { VisionMissionSection } from "@/components/vision-mission-section";
+import { EducationJourneySection } from "@/components/education-journey-section";
 
 const highlights = [
   "Full Stack Developer with expertise in MERN Stack",
@@ -102,20 +104,13 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-20 max-w-6xl px-5">
-        <h2 className="text-2xl font-bold tracking-tight underline-accent">My Process</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {process.map((p) => (
-            <div key={p.n} className="rounded-2xl border border-border bg-card p-5 text-center">
-              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-accent text-sm font-bold text-primary">
-                {p.n}
-              </div>
-              <h3 className="mt-4 text-base font-bold">{p.t}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* VISION & MISSION (matching user reference design) */}
+      <VisionMissionSection />
+
+      {/* EDUCATION JOURNEY (matching user reference design) */}
+      <EducationJourneySection />
+
+
     </div>
   );
 }

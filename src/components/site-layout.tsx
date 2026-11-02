@@ -12,6 +12,7 @@ const navItems = [
   { to: "/skills", label: "Skills" },
   { to: "/work", label: "Work" },
   { to: "/experience", label: "Experience" },
+  { to: "/testimonials", label: "Testimonials" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -28,10 +29,10 @@ export function SiteHeader() {
             className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:invert"
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-[12px] font-black tracking-wider uppercase text-foreground">
+            <span className="font-cinzel text-[12px] font-bold tracking-[0.16em] uppercase text-foreground">
               WEB CRAFT
             </span>
-            <span className="text-[13px] font-black tracking-widest uppercase text-primary -mt-0.5">
+            <span className="font-cinzel text-[13px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">
               HUB
             </span>
           </div>
@@ -142,10 +143,10 @@ export function SiteFooter() {
           <Link to="/" className="inline-flex items-center gap-3 text-left">
             <img src={logoMark} alt="Web Craft Hub" className="h-10 w-auto invert" />
             <div className="flex flex-col leading-tight">
-              <span className="text-sm font-black tracking-wider uppercase text-background">
+              <span className="font-cinzel text-sm font-bold tracking-[0.16em] uppercase text-background">
                 WEB CRAFT
               </span>
-              <span className="text-base font-black tracking-widest uppercase text-primary -mt-0.5">
+              <span className="font-cinzel text-base font-black tracking-[0.24em] uppercase text-primary -mt-0.5">
                 HUB
               </span>
             </div>

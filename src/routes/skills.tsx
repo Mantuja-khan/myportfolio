@@ -3,25 +3,30 @@ import { PageHeading } from "@/components/site-layout";
 import { SkillCircle } from "@/components/skill-circle";
 
 const technologies = [
-  { name: "HTML", icon: "</>", level: 90 },
-  { name: "CSS", icon: "#", level: 85 },
-  { name: "JavaScript", icon: "JS", level: 80 },
-  { name: "React", icon: "⚛", level: 85 },
-  { name: "Node.js", icon: "⬢", level: 75 },
-  { name: "Git", icon: "⑂", level: 80 },
-  { name: "npm", icon: "npm", level: 85 },
-  { name: "GitHub", icon: "◍", level: 80 },
+  { name: "TypeScript", icon: "TS", level: 88 },
+  { name: "Node.js", icon: "⬢", level: 85 },
+  { name: "Express.js", icon: "Ex", level: 85 },
+  { name: "MongoDB", icon: "🍃", level: 82 },
+  { name: "REST API", icon: "⇄", level: 90 },
+  { name: "Responsive Design", icon: "📱", level: 95 },
+  { name: "React", icon: "⚛", level: 90 },
+  { name: "JavaScript", icon: "JS", level: 88 },
+  { name: "HTML5", icon: "</>", level: 95 },
+  { name: "CSS3", icon: "#", level: 90 },
+  { name: "Git", icon: "⑂", level: 85 },
+  { name: "GitHub", icon: "◍", level: 85 },
 ];
 
 const alsoUsing = [
-  "TypeScript",
   "Next.js",
-  "MongoDB",
-  "Express.js",
   "Tailwind CSS",
-  "REST APIs",
+  "npm",
+  "Redux Toolkit",
+  "Vite",
+  "Postman",
   "Figma",
-  "Responsive Design",
+  "Linux / Bash",
+  "Vercel",
 ];
 
 export const Route = createFileRoute("/skills")({

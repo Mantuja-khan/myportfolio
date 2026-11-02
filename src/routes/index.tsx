@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Briefcase, CheckCircle2, Clapperboard, Code2, Download, Globe, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Briefcase, CheckCircle2, Clapperboard, Code2, Download, Globe, Mail, MapPin, Phone, Star, Quote } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.png";
 import aboutImg from "@/assets/about-illustration.png";
 import logoMark from "@/assets/logo-mark.png";
@@ -8,6 +8,8 @@ import { RoleRotator } from "@/components/role-rotator";
 import { Button } from "@/components/ui/button";
 import { SkillCircle } from "@/components/skill-circle";
 import { WorkImageCard, workProjects } from "@/components/work-image-card";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { testimonialsData } from "@/lib/testimonials-data";
 
 const stats = [
   { value: "15+", label: "Projects completed" },
@@ -35,12 +37,12 @@ const aboutPoints = [
 ];
 
 const skills = [
-  { name: "HTML", level: 90 },
-  { name: "CSS", level: 85 },
-  { name: "JavaScript", level: 80 },
-  { name: "React", level: 85 },
-  { name: "Node.js", level: 75 },
-  { name: "Git", level: 80 },
+  { name: "TypeScript", level: 88 },
+  { name: "Node.js", level: 85 },
+  { name: "Express.js", level: 85 },
+  { name: "MongoDB", level: 82 },
+  { name: "REST API", level: 90 },
+  { name: "Responsive Design", level: 95 },
 ];
 
 
@@ -116,8 +118,8 @@ function Index() {
             <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-card/90 px-3.5 py-1.5 text-xs font-semibold text-foreground shadow-[var(--shadow-soft)] backdrop-blur transition-transform hover:scale-105">
               <img src={logoMark} alt="Web Craft Hub" className="h-4.5 w-auto dark:invert" />
               <div className="flex flex-col leading-tight text-left">
-                <span className="text-[10px] font-black tracking-wider uppercase text-foreground">Web Craft</span>
-                <span className="text-[10px] font-black tracking-widest uppercase text-primary -mt-0.5">Hub</span>
+                <span className="font-cinzel text-[10px] font-bold tracking-[0.16em] uppercase text-foreground">Web Craft</span>
+                <span className="font-cinzel text-[10px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">Hub</span>
               </div>
               <span className="h-1 w-1 rounded-full bg-border" />
               <span className="flex items-center gap-1.5 text-[11px] font-medium text-primary">
@@ -126,8 +128,8 @@ function Index() {
               </span>
             </div>
             <p className="mt-7 text-lg font-medium text-muted-foreground">Hi, I'm</p>
-            <h1 className="mt-2 text-5xl font-bold uppercase leading-[0.98] sm:text-6xl lg:text-7xl">
-              <LetterReveal text="MANTUJA KHAN" gradientWords={["KHAN"]} />
+            <h1 className="mt-1 font-cursive text-5xl font-bold tracking-wide capitalize leading-[1.08] text-foreground sm:text-6xl lg:text-7xl">
+              <LetterReveal text="Mantuja Khan" gradientWords={["Khan"]} />
             </h1>
             <RoleRotator />
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -262,6 +264,22 @@ function Index() {
           className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
         >
           Full experience <ArrowUpRight className="h-4 w-4" />
+        </Link>
+      </section>
+
+      {/* TESTIMONIALS (short) */}
+      <section className="mx-auto mt-24 max-w-6xl px-5">
+        <SectionTitle eyebrow="Client Feedback" title="What people say" />
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 pt-4">
+          {testimonialsData.slice(0, 3).map((item) => (
+            <TestimonialCard key={item.id} item={item} />
+          ))}
+        </div>
+        <Link
+          to="/testimonials"
+          className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+        >
+          View all testimonials <ArrowUpRight className="h-4 w-4" />
         </Link>
       </section>
 

@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter, TopCta } from "@/components/site-layout";
 import { BrandIntro } from "@/components/brand-intro";
+import { FloatingContact } from "@/components/floating-contact";
 
 
 function NotFoundComponent() {
@@ -105,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=Shrikhand&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Dancing+Script:wght@600;700&family=Cinzel:wght@600;700;800;900&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -150,6 +151,7 @@ function RootComponent() {
           <div className="relative z-10"><Outlet /></div>
         </main>
         <SiteFooter />
+        <FloatingContact />
       </div>
     </QueryClientProvider>
 

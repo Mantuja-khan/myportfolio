@@ -151,10 +151,10 @@ export function BrandIntro() {
           />
         </div>
 
-        {/* Brand Text in Shrikhand Font flying in from random places */}
+        {/* Brand Text in Cinzel Font flying in from random places */}
         <div
-          className="font-shrikhand mt-5 flex flex-col items-center select-none"
-          style={{ fontFamily: "'Shrikhand', cursive, sans-serif" }}
+          className="font-cinzel mt-5 flex flex-col items-center select-none tracking-widest"
+          style={{ fontFamily: "'Cinzel', serif" }}
         >
           {/* Top Line: WEB CRAFT */}
           <div className="flex items-center justify-center gap-3 text-4xl tracking-wider text-foreground sm:text-6xl">

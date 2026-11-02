@@ -20,12 +20,13 @@
 
 @theme inline {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Dancing Script", "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-shrikhand: "Shrikhand", cursive, sans-serif;
+  --font-display: "Cinzel", "Poppins", ui-sans-serif, system-ui, sans-serif;
+    --font-cinzel: "Cinzel", serif;
+    --font-cursive: "Dancing Script", cursive, sans-serif;
+    --font-shrikhand: "Cinzel", "Shrikhand", cursive, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
-
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
@@ -394,11 +395,55 @@
   .work-a4-img { transition: none; animation: none; }
 }
 
-/* Web Craft Hub loading intro animation with Shrikhand font & random piece entrance */
+/* Typography helpers */
 .font-shrikhand {
   font-family: var(--font-shrikhand);
 }
 
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-cursive {
+  font-family: var(--font-cursive);
+}
+
+/* Quick Contact floating buttons blinking / pulse animation */
+@keyframes blink-glow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(77, 141, 186, 0.7);
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 14px rgba(77, 141, 186, 0);
+  }
+}
+
+@keyframes whatsapp-blink {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.75);
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-blink-call {
+  animation: blink-glow 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-blink-whatsapp {
+  animation: whatsapp-blink 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 .intro-piece-random {
   opacity: 0;
   animation: intro-piece-fly-in 0.9s cubic-bezier(0.18, 0.9, 0.32, 1) forwards;

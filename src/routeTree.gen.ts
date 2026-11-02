@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const SkillsRoute = SkillsRouteImport.update({
   path: '/skills',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/services': typeof ServicesRoute
   '/skills': typeof SkillsRoute
+  '/testimonials': typeof TestimonialsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/services': typeof ServicesRoute
   '/skills': typeof SkillsRoute
+  '/testimonials': typeof TestimonialsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/services': typeof ServicesRoute
   '/skills': typeof SkillsRoute
+  '/testimonials': typeof TestimonialsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/services'
     | '/skills'
+    | '/testimonials'
     | '/work'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/services'
     | '/skills'
+    | '/testimonials'
     | '/work'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/services'
     | '/skills'
+    | '/testimonials'
     | '/work'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   ServicesRoute: typeof ServicesRoute
   SkillsRoute: typeof SkillsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   ServicesRoute: ServicesRoute,
   SkillsRoute: SkillsRoute,
+  TestimonialsRoute: TestimonialsRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
