@@ -4,7 +4,10 @@ import { useState } from "react";
 import { LetterReveal } from "@/components/letter-reveal";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
+import logoFull from "@/assets/logo-full.png";
+import logoFullDark from "@/assets/logo-full-dark.png";
 import logoMark from "@/assets/logo-mark.png";
+import logoMarkDark from "@/assets/logo-mark-dark.png";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -25,18 +28,15 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Link to="/" data-brand-anchor className="flex items-center gap-2.5 py-1 text-left group">
           <img
-            src={logoMark}
+            src={logoFull}
             alt="Web Craft Hub"
-            className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:invert"
+            className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:hidden"
           />
-          <div className="flex flex-col leading-tight">
-            <span className="font-cinzel text-[12px] font-bold tracking-[0.16em] uppercase text-foreground">
-              WEB CRAFT
-            </span>
-            <span className="font-cinzel text-[13px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">
-              HUB
-            </span>
-          </div>
+          <img
+            src={logoFullDark}
+            alt="Web Craft Hub"
+            className="hidden h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:block"
+          />
         </Link>
 
         <nav className="hidden items-center gap-5 md:flex">
@@ -149,15 +149,7 @@ export function SiteFooter() {
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-14 md:grid-cols-[1.2fr_0.7fr_1fr]">
         <ScrollReveal direction="left">
           <Link to="/" className="inline-flex items-center gap-3 text-left">
-            <img src={logoMark} alt="Web Craft Hub" className="h-10 w-auto invert" />
-            <div className="flex flex-col leading-tight">
-              <span className="font-cinzel text-sm font-bold tracking-[0.16em] uppercase text-background">
-                WEB CRAFT
-              </span>
-              <span className="font-cinzel text-base font-black tracking-[0.24em] uppercase text-primary -mt-0.5">
-                HUB
-              </span>
-            </div>
+            <img src={logoFullDark} alt="Web Craft Hub" className="h-10 w-auto" />
           </Link>
           <h2 className="mt-6 text-2xl font-bold leading-snug md:text-3xl">
             Let's build something

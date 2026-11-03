@@ -151,29 +151,17 @@ export function TestimonialCard({ item }: { item: TestimonialItem }) {
                   >
                     {item.name}
                   </h3>
-                  <CheckCircle2
-                    className="h-4 w-4 text-primary shrink-0"
-                    title="Verified Client"
-                  />
+                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0" title="Verified Client" />
                 </div>
-                <p className="text-xs sm:text-sm text-primary font-semibold mt-0.5">
-                  {item.role}
-                </p>
-                <p className="text-xs text-muted-foreground font-medium">
-                  {item.company}
-                </p>
+                <p className="text-xs sm:text-sm text-primary font-semibold mt-0.5">{item.role}</p>
+                <p className="text-xs text-muted-foreground font-medium">{item.company}</p>
 
                 {/* Rating stars */}
                 <div className="mt-2 flex items-center gap-1 text-amber-400">
                   {Array.from({ length: rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-amber-400 text-amber-400"
-                    />
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
-                  <span className="ml-1 text-xs font-bold text-foreground">
-                    5.0 / 5.0
-                  </span>
+                  <span className="ml-1 text-xs font-bold text-foreground">5.0 / 5.0</span>
                 </div>
               </div>
             </div>
@@ -205,9 +193,7 @@ export function TestimonialCard({ item }: { item: TestimonialItem }) {
                   Visit live website <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               ) : (
-                <span className="text-xs text-muted-foreground">
-                  Verified Client Review
-                </span>
+                <span className="text-xs text-muted-foreground">Verified Client Review</span>
               )}
 
               <button

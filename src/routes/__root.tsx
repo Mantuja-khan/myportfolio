@@ -17,7 +17,6 @@ import { SiteHeader, SiteFooter, TopCta } from "@/components/site-layout";
 import { BrandIntro } from "@/components/brand-intro";
 import { FloatingContact } from "@/components/floating-contact";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -144,17 +143,26 @@ function RootComponent() {
         <SiteHeader />
         {!isHome && <TopCta />}
         <main className="relative flex-1 overflow-hidden">
-          <span aria-hidden className="page-dot-field pointer-events-none absolute left-0 top-[12%] h-32 w-24 opacity-40" />
-          <span aria-hidden className="page-dot-field pointer-events-none absolute right-0 top-[46%] h-40 w-28 opacity-35" />
-          <span aria-hidden className="page-dot-field pointer-events-none absolute left-[7%] bottom-[8%] h-24 w-24 opacity-30" />
+          <span
+            aria-hidden
+            className="page-dot-field pointer-events-none absolute left-0 top-[12%] h-32 w-24 opacity-40"
+          />
+          <span
+            aria-hidden
+            className="page-dot-field pointer-events-none absolute right-0 top-[46%] h-40 w-28 opacity-35"
+          />
+          <span
+            aria-hidden
+            className="page-dot-field pointer-events-none absolute left-[7%] bottom-[8%] h-24 w-24 opacity-30"
+          />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <div className="relative z-10"><Outlet /></div>
+          <div className="relative z-10">
+            <Outlet />
+          </div>
         </main>
         <SiteFooter />
         <FloatingContact />
       </div>
     </QueryClientProvider>
-
-
   );
 }

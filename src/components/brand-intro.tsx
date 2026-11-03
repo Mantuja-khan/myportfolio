@@ -1,51 +1,25 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import logoMark from "@/assets/logo-mark.png";
+import { useEffect, useRef, useState } from "react";
+import pieceEmblemFrame from "@/assets/piece-emblem-frame.png";
+import pieceEmblemFrameDark from "@/assets/piece-emblem-frame-dark.png";
+import pieceEmblemSlash from "@/assets/piece-emblem-slash.png";
+import pieceEb from "@/assets/piece-eb.png";
+import pieceRafthub from "@/assets/piece-rafthub.png";
+import pieceRafthubDark from "@/assets/piece-rafthub-dark.png";
 
 type Stage = "intro" | "toNav" | "fade" | "gone";
 
 /**
- * Full-screen loading intro for Web Craft Hub.
- * - Non-cursive, authentic Shrikhand font
- * - Content flies in from random positions/angles with staggered timing
- * - No loading bar beneath
- * - Glides directly into the navbar logo slot upon completion
+ * Animated Brand Loading Intro for Web Craft Hub.
+ * - The main logo is split into separate pieces/fragments.
+ * - Each piece flies in from different angles/corners and seamlessly assembles in the center.
+ * - Accompanying content (badge, category, tagline) glides in from top and bottom.
+ * - Once unified in the center with a glowing burst, it glides into the navbar brand anchor slot.
  */
 export function BrandIntro() {
   const [mounted, setMounted] = useState(false);
   const [stage, setStage] = useState<Stage>("intro");
   const [fly, setFly] = useState<{ x: number; y: number; scale: number } | null>(null);
   const markRef = useRef<HTMLDivElement>(null);
-
-  // Generate random off-screen coordinates and rotations for each piece
-  const randomStarts = useMemo(() => {
-    return {
-      mark: {
-        x: `${(Math.random() > 0.5 ? 1 : -1) * (45 + Math.random() * 30)}vw`,
-        y: `${(Math.random() > 0.5 ? 1 : -1) * (40 + Math.random() * 25)}vh`,
-        r: `${(Math.random() - 0.5) * 55}deg`,
-      },
-      web: {
-        x: `${-(40 + Math.random() * 30)}vw`,
-        y: `${(Math.random() - 0.5) * 50}vh`,
-        r: `${(Math.random() - 0.5) * 45}deg`,
-      },
-      craft: {
-        x: `${40 + Math.random() * 30}vw`,
-        y: `${(Math.random() - 0.5) * 50}vh`,
-        r: `${(Math.random() - 0.5) * 45}deg`,
-      },
-      hub: {
-        x: `${(Math.random() - 0.5) * 50}vw`,
-        y: `${40 + Math.random() * 25}vh`,
-        r: `${(Math.random() - 0.5) * 50}deg`,
-      },
-      tagline: {
-        x: "0vw",
-        y: "25vh",
-        r: "0deg",
-      },
-    };
-  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -57,8 +31,8 @@ export function BrandIntro() {
       setStage("gone");
       return;
     }
-    // Allow intro to play and settle, then glide up to navbar
-    const t = setTimeout(() => setStage("toNav"), 1900);
+    // Allow intro fragments to assemble in the center and pause so the user sees the complete logo
+    const t = setTimeout(() => setStage("toNav"), 2200);
     return () => clearTimeout(t);
   }, [mounted]);
 
@@ -74,7 +48,7 @@ export function BrandIntro() {
     const m = mark.getBoundingClientRect();
 
     // Calculate scale and position to dock right into navbar brand anchor
-    const scale = Math.max(0.18, Math.min(0.42, (a.height * 1.05) / m.height));
+    const scale = Math.max(0.18, Math.min(0.42, (a.height * 1.1) / m.height));
     setFly({
       x: a.left + a.width / 2 - (m.left + m.width / 2),
       y: a.top + a.height / 2 - (m.top + m.height / 2),
@@ -109,6 +83,7 @@ export function BrandIntro() {
         stage === "fade" ? "opacity-0" : "opacity-100"
       } ${stage === "intro" ? "" : "pointer-events-none"}`}
     >
+      {/* Background ambient lighting */}
       <span
         aria-hidden
         className="dot-grid pointer-events-none absolute left-[8%] top-[10%] h-32 w-28 opacity-40"
@@ -131,93 +106,72 @@ export function BrandIntro() {
             : undefined
         }
       >
-        {/* Animated Emblem flying in from random place */}
-        <div
-          className="intro-piece-random relative flex items-center justify-center"
-          style={
-            {
-              "--from-x": randomStarts.mark.x,
-              "--from-y": randomStarts.mark.y,
-              "--from-r": randomStarts.mark.r,
-              animationDelay: "0.05s",
-            } as CSSProperties
-          }
-        >
-          <div className="absolute -inset-5 rounded-full bg-primary/25 blur-2xl animate-pulse" />
+        {/* Top Content: glides down from above */}
+        <div className="content-enter-down mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm backdrop-blur">
+          <span className="h-2 w-2 rounded-full bg-primary animate-ping" />
+          <span className="font-bold tracking-wider uppercase">Web Craft Hub</span>
+          <span className="text-muted-foreground/60">•</span>
+          <span className="text-muted-foreground">Digital Products & Marketing</span>
+        </div>
+
+        {/* LOGO FRAGMENT ASSEMBLY ARENA */}
+        {/* All 4 piece PNGs share 1024x488 coordinates, snapping into 100% pixel-perfect union */}
+        <div className="relative w-[320px] sm:w-[440px] md:w-[540px] aspect-[1024/488] flex items-center justify-center select-none">
+          {/* Blue radial flare that bursts when pieces meet in the center */}
+          <div
+            className="logo-joined-pulse pointer-events-none absolute -inset-8 rounded-full bg-[#003399]/30 blur-3xl"
+            aria-hidden="true"
+          />
+
+          {/* Piece 1: Emblem Outer Frame (flies in from Top-Left) */}
           <img
-            src={logoMark}
-            alt="Web Craft Hub Logo"
-            className="relative h-24 w-auto drop-shadow-xl dark:invert sm:h-32"
+            src={pieceEmblemFrame}
+            alt=""
+            className="piece-fly-tl absolute inset-0 h-full w-full object-contain pointer-events-none dark:hidden"
+          />
+          <img
+            src={pieceEmblemFrameDark}
+            alt=""
+            className="piece-fly-tl absolute inset-0 hidden h-full w-full object-contain pointer-events-none dark:block"
+          />
+
+          {/* Piece 2: Emblem Blue Slash (streaks in from Bottom-Left) */}
+          <img
+            src={pieceEmblemSlash}
+            alt=""
+            className="piece-fly-bl absolute inset-0 h-full w-full object-contain pointer-events-none drop-shadow-[0_0_18px_rgba(0,51,153,0.7)]"
+          />
+
+          {/* Piece 3: EB Blue Angular Letters (glides in from Top-Right) */}
+          <img
+            src={pieceEb}
+            alt=""
+            className="piece-fly-tr absolute inset-0 h-full w-full object-contain pointer-events-none drop-shadow-[0_0_14px_rgba(0,51,153,0.5)]"
+          />
+
+          {/* Piece 4: RAFTHUB Black Letters (glides in from Bottom-Right) */}
+          <img
+            src={pieceRafthub}
+            alt=""
+            className="piece-fly-br absolute inset-0 h-full w-full object-contain pointer-events-none dark:hidden"
+          />
+          <img
+            src={pieceRafthubDark}
+            alt=""
+            className="piece-fly-br absolute inset-0 hidden h-full w-full object-contain pointer-events-none dark:block"
           />
         </div>
 
-        {/* Brand Text in Cinzel Font flying in from random places */}
-        <div
-          className="font-cinzel mt-5 flex flex-col items-center select-none tracking-widest"
-          style={{ fontFamily: "'Cinzel', serif" }}
-        >
-          {/* Top Line: WEB CRAFT */}
-          <div className="flex items-center justify-center gap-3 text-4xl tracking-wider text-foreground sm:text-6xl">
-            <span
-              className="intro-piece-random inline-block"
-              style={
-                {
-                  "--from-x": randomStarts.web.x,
-                  "--from-y": randomStarts.web.y,
-                  "--from-r": randomStarts.web.r,
-                  animationDelay: "0.18s",
-                } as CSSProperties
-              }
-            >
-              WEB
-            </span>
-            <span
-              className="intro-piece-random inline-block"
-              style={
-                {
-                  "--from-x": randomStarts.craft.x,
-                  "--from-y": randomStarts.craft.y,
-                  "--from-r": randomStarts.craft.r,
-                  animationDelay: "0.3s",
-                } as CSSProperties
-              }
-            >
-              CRAFT
-            </span>
-          </div>
-
-          {/* Bottom Line: HUB */}
-          <div className="mt-1">
-            <span
-              className="intro-piece-random inline-block text-4xl tracking-[0.2em] text-primary sm:text-6xl"
-              style={
-                {
-                  "--from-x": randomStarts.hub.x,
-                  "--from-y": randomStarts.hub.y,
-                  "--from-r": randomStarts.hub.r,
-                  animationDelay: "0.42s",
-                } as CSSProperties
-              }
-            >
-              HUB
-            </span>
-          </div>
-
-          {/* Subtitle */}
-          <p
-            className="intro-piece-random mt-3 text-xs font-semibold tracking-[0.35em] uppercase text-muted-foreground sm:text-sm"
-            style={
-              {
-                fontFamily: "var(--font-sans)",
-                "--from-x": randomStarts.tagline.x,
-                "--from-y": randomStarts.tagline.y,
-                "--from-r": randomStarts.tagline.r,
-                animationDelay: "0.55s",
-              } as CSSProperties
-            }
-          >
+        {/* Bottom Content: glides up from below */}
+        <div className="content-enter-up mt-6 flex flex-col items-center">
+          <p className="text-xs font-bold tracking-[0.35em] uppercase text-muted-foreground sm:text-sm">
             A Marketing Agency
           </p>
+          <div className="mt-2.5 flex items-center gap-2.5 text-[11px] font-semibold text-primary">
+            <span className="h-1 w-7 rounded-full bg-primary" />
+            <span className="tracking-widest uppercase">Design • Development • Growth</span>
+            <span className="h-1 w-7 rounded-full bg-primary" />
+          </div>
         </div>
       </div>
     </div>

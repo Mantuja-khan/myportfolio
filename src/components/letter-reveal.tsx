@@ -34,7 +34,7 @@ export function LetterReveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -54,7 +54,7 @@ export function LetterReveal({
                 key={ci}
                 className={cn(
                   "inline-block transition-all duration-500 ease-out will-change-transform",
-                  isGradient && "text-gradient"
+                  isGradient && "text-gradient",
                 )}
                 style={{
                   transitionDelay: `${delay + i * stagger}ms`,

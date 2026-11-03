@@ -17,6 +17,7 @@ import {
 import heroImg from "@/assets/hero-illustration.png";
 import aboutImg from "@/assets/about-illustration.png";
 import logoMark from "@/assets/logo-mark.png";
+import logoMarkDark from "@/assets/logo-mark-dark.png";
 import { LetterReveal } from "@/components/letter-reveal";
 import { RoleRotator } from "@/components/role-rotator";
 import { Button } from "@/components/ui/button";
@@ -139,7 +140,12 @@ function Index() {
         <div className="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-8 px-5 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
           <ScrollReveal direction="left" className="z-20 max-w-xl">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-card/90 px-3.5 py-1.5 text-xs font-semibold text-foreground shadow-[var(--shadow-soft)] backdrop-blur transition-transform hover:scale-105">
-              <img src={logoMark} alt="Web Craft Hub" className="h-4.5 w-auto dark:invert" />
+              <img src={logoMark} alt="Web Craft Hub" className="h-5 w-auto dark:hidden" />
+              <img
+                src={logoMarkDark}
+                alt="Web Craft Hub"
+                className="hidden h-5 w-auto dark:block"
+              />
               <div className="flex flex-col leading-tight text-left">
                 <span className="font-cinzel text-[10px] font-bold tracking-[0.16em] uppercase text-foreground">
                   Web Craft

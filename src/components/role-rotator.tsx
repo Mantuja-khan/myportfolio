@@ -10,7 +10,9 @@ const roles = [
 export function RoleRotator() {
   return (
     <div className="role-rotator mt-3" aria-label={roles.join(", ")}>
-      <span aria-hidden className="role-rotator-arrow">→</span>
+      <span aria-hidden className="role-rotator-arrow">
+        →
+      </span>
       <span className="role-rotator-window" aria-hidden>
         <span className="role-rotator-track">
           {[...roles, roles[0]].map((role, index) => (

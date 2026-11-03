@@ -23,9 +23,7 @@ export function FloatingContact() {
         {/* Tooltip */}
         <span
           className={`pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-card/95 border border-border px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-200 ${
-            hovered === "whatsapp"
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-2"
+            hovered === "whatsapp" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"
           }`}
         >
           Chat on WhatsApp
@@ -61,9 +59,7 @@ export function FloatingContact() {
         {/* Tooltip */}
         <span
           className={`pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-card/95 border border-border px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-200 ${
-            hovered === "call"
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-2"
+            hovered === "call" ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"
           }`}
         >
           Call: {phoneDisplay}

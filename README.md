@@ -1,7 +1,7 @@
 # My Portfolio Hub
 
 - please make the my portfolio website as same like this and make sur use same font color same font size same styling same image and make sure every navbar button have their own pages .
-make sure the code should be in the react JS react router dom part
+  make sure the code should be in the react JS react router dom part
 
 This project was built with [Lovable](https://lovable.dev).
 
