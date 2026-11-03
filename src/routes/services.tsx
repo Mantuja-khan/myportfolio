@@ -16,6 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { PageHeading } from "@/components/site-layout";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 /**
  * 4 Core Service Pillars matching the user's reference image:
@@ -121,7 +122,8 @@ const specializedServices: Array<{
   },
   {
     title: "Product Catalogues",
-    description: "Structured digital product catalogues making your offerings effortlessly browsable.",
+    description:
+      "Structured digital product catalogues making your offerings effortlessly browsable.",
     icon: BookOpenCheck,
   },
   {
@@ -131,9 +133,10 @@ const specializedServices: Array<{
   },
   {
     title: "Google Maps Business Listing",
-    description: "Accurate local Map pin placements that drive nearby footfall and phone inquiries.",
+    description:
+      "Accurate local Map pin placements that drive nearby footfall and phone inquiries.",
     icon: MapPinned,
-    },
+  },
 ];
 
 export const Route = createFileRoute("/services")({
@@ -171,18 +174,17 @@ function ServicesPage() {
       <section className="mx-auto mt-12 max-w-6xl px-5" aria-label="Core Service Phases">
         <div className="divide-y divide-border/70">
           {mainServicePillars.map((service) => (
-            <article
-              key={service.number}
-              className="py-12 sm:py-16 lg:py-20 first:pt-4"
-            >
+            <article key={service.number} className="py-12 sm:py-16 lg:py-20 first:pt-4">
               <div
-                className={`flex flex-col items-center justify-between gap-8 md:gap-14 lg:gap-16 ${service.reverse
-                    ? "md:flex-row-reverse"
-                    : "md:flex-row"
-                  }`}
+                className={`flex flex-col items-center justify-between gap-8 md:gap-14 lg:gap-16 ${
+                  service.reverse ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
               >
                 {/* Text Content Side */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                <ScrollReveal
+                  direction={service.reverse ? "right" : "left"}
+                  className="w-full md:w-1/2 flex flex-col justify-center"
+                >
                   <span className="text-xs font-bold uppercase tracking-widest text-primary">
                     Phase {service.number}
                   </span>
@@ -209,16 +211,23 @@ function ServicesPage() {
                   {/* Key Deliverables Bullet Points */}
                   <ul className="mt-6 space-y-2.5">
                     {service.deliverables.map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium">
+                      <li
+                        key={item}
+                        className="flex items-center gap-2.5 text-xs sm:text-sm text-foreground/90 font-medium"
+                      >
                         <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </ScrollReveal>
 
                 {/* Stylized Image-Masked Number Side */}
-                <div className="w-full md:w-1/2 flex items-center justify-center">
+                <ScrollReveal
+                  direction={service.reverse ? "left" : "right"}
+                  delay={120}
+                  className="w-full md:w-1/2 flex items-center justify-center"
+                >
                   <div className="relative group transition-transform duration-500 hover:scale-[1.03]">
                     <span
                       className="masked-digit text-[7.5rem] sm:text-[10.5rem] md:text-[12rem] lg:text-[14.5rem]"
@@ -230,7 +239,7 @@ function ServicesPage() {
                       {service.number}
                     </span>
                   </div>
-                </div>
+                </ScrollReveal>
               </div>
             </article>
           ))}
@@ -240,7 +249,7 @@ function ServicesPage() {
       {/* SPECIALIZED CAPABILITIES GRID */}
       <section className="mx-auto mt-20 max-w-6xl px-5">
         <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)]">
-          <div className="max-w-2xl">
+          <ScrollReveal direction="left" className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-widest text-primary">
               Full Suite Capabilities
             </span>
@@ -254,33 +263,34 @@ function ServicesPage() {
               From responsive frontend architectures and custom e-commerce engines to local Google
               Maps presence and managed DNS hosting.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {specializedServices.map((service, index) => {
               const Icon = service.icon;
               return (
-                <div
+                <ScrollReveal
                   key={service.title}
-                  className="group rounded-2xl border border-border/70 bg-card p-5 transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1"
+                  direction={index % 2 === 0 ? "left" : "right"}
+                  delay={(index % 4) * 60}
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-5 w-5" />
+                  <div className="group h-full rounded-2xl border border-border/70 bg-card p-5 transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary transition-transform duration-300 group-hover:scale-110">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }

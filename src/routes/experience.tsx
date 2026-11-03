@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Briefcase, Clapperboard, Code2, Globe } from "lucide-react";
 import { PageHeading } from "@/components/site-layout";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const roles = [
   {
@@ -88,19 +89,33 @@ function ExperiencePage() {
         {roles.map((r, index) => {
           const Icon = [Clapperboard, Globe, Briefcase, Code2][index % 4];
           return (
-            <article key={r.company} className="experience-step relative isolate flex items-start gap-5">
-              <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary"><Icon className="h-8 w-8" /></span>
-              <div className="min-w-0 bg-background">
-                <p className="text-xs font-semibold text-primary">{r.period}</p>
-                <h2 className="mt-2 text-lg font-bold">{r.title}</h2>
-                <p className="mt-2 text-sm font-semibold text-primary">{r.company}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{r.location} · {r.type}</p>
-                <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
-                  {r.responsibilities.map((d) => <li key={d}>• {d}</li>)}
-                </ul>
-                <p className="mt-4 text-sm font-semibold text-primary">{r.technologies.join(" / ")}</p>
-              </div>
-            </article>
+            <ScrollReveal
+              key={r.company}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={(index % 2) * 100}
+            >
+              <article className="experience-step relative isolate flex items-start gap-5">
+                <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                  <Icon className="h-8 w-8" />
+                </span>
+                <div className="min-w-0 bg-background">
+                  <p className="text-xs font-semibold text-primary">{r.period}</p>
+                  <h2 className="mt-2 text-lg font-bold">{r.title}</h2>
+                  <p className="mt-2 text-sm font-semibold text-primary">{r.company}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {r.location} · {r.type}
+                  </p>
+                  <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {r.responsibilities.map((d) => (
+                      <li key={d}>• {d}</li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-sm font-semibold text-primary">
+                    {r.technologies.join(" / ")}
+                  </p>
+                </div>
+              </article>
+            </ScrollReveal>
           );
         })}
       </section>

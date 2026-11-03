@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 interface Milestone {
   number: string;
@@ -43,7 +44,10 @@ const educationMilestones: Milestone[] = [
  */
 export function EducationJourneySection() {
   return (
-    <section className="w-full mt-24 sm:mt-32 px-5 sm:px-10 lg:px-16 xl:px-24" aria-labelledby="education-heading">
+    <section
+      className="w-full mt-24 sm:mt-32 px-5 sm:px-10 lg:px-16 xl:px-24"
+      aria-labelledby="education-heading"
+    >
       {/* Background ambient lighting */}
       <div className="relative w-full">
         <div
@@ -52,7 +56,7 @@ export function EducationJourneySection() {
         />
 
         {/* Top / Left Header Block - unboxed */}
-        <div className="max-w-2xl">
+        <ScrollReveal direction="left" className="max-w-2xl">
           <p className="text-xs font-bold tracking-widest text-[#f2644e] uppercase">
             Academic &amp; Learning Pathway
           </p>
@@ -81,11 +85,10 @@ export function EducationJourneySection() {
               Explore Technical Skills
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Desktop Wavy Timeline spanning full width (visible on lg screens) */}
         <div className="relative mt-16 hidden lg:block min-h-[400px] w-full">
-
           {/* Updated Smooth S-Curve SVG Line connecting all three milestone points */}
           <svg
             className="absolute inset-0 h-full w-full pointer-events-none overflow-visible"
@@ -117,12 +120,8 @@ export function EducationJourneySection() {
           </svg>
           {/* 3 Milestone Stations placed along the wave */}
           <div className="relative z-10 grid grid-cols-3 gap-10 pt-4">
-
             {/* MILESTONE 1 (Bottom Left / Center) */}
-            <div className="relative pt-48">
-
-
-
+            <ScrollReveal direction="left" className="relative pt-48">
               {/* Watermark Number '1' */}
               <span
                 aria-hidden="true"
@@ -143,13 +142,10 @@ export function EducationJourneySection() {
                   {educationMilestones[0].description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* MILESTONE 2 (Center) */}
-            <div className="relative pt-24">
-
-
-
+            <ScrollReveal direction="up" delay={120} className="relative pt-24">
               {/* Watermark Number '2' */}
               <span
                 aria-hidden="true"
@@ -170,13 +166,10 @@ export function EducationJourneySection() {
                   {educationMilestones[1].description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* MILESTONE 3 (Top Right) */}
-            <div className="relative pt-0">
-
-
-
+            <ScrollReveal direction="right" delay={240} className="relative pt-0">
               {/* Watermark Number '3' */}
               <span
                 aria-hidden="true"
@@ -197,39 +190,42 @@ export function EducationJourneySection() {
                   {educationMilestones[2].description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
 
         {/* Mobile / Tablet Timeline - completely unboxed */}
         <div className="mt-12 space-y-10 lg:hidden">
-          {educationMilestones.map((item) => (
-            <div
+          {educationMilestones.map((item, idx) => (
+            <ScrollReveal
               key={item.number}
-              className="relative overflow-hidden pl-4 border-l-2 border-[#f2644e]/40"
+              direction={idx % 2 === 0 ? "left" : "right"}
+              delay={idx * 80}
             >
-              {/* Giant watermark number */}
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute right-0 -bottom-4 text-8xl font-black text-slate-400/15 dark:text-slate-600/15 select-none"
-              >
-                {item.number}
-              </span>
-
-              <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f2644e] text-xs font-bold text-white shadow-sm">
+              <div className="relative overflow-hidden pl-4 border-l-2 border-[#f2644e]/40">
+                {/* Giant watermark number */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-0 -bottom-4 text-8xl font-black text-slate-400/15 dark:text-slate-600/15 select-none"
+                >
                   {item.number}
                 </span>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#f2644e]">
-                  {item.period}
-                </span>
-              </div>
 
-              <h3 className="mt-2 text-base font-bold text-foreground">{item.title}</h3>
-              <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-            </div>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f2644e] text-xs font-bold text-white shadow-sm">
+                    {item.number}
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#f2644e]">
+                    {item.period}
+                  </span>
+                </div>
+
+                <h3 className="mt-2 text-base font-bold text-foreground">{item.title}</h3>
+                <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

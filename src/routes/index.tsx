@@ -1,5 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Briefcase, CheckCircle2, Clapperboard, Code2, Download, Globe, Mail, MapPin, Phone, Star, Quote } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Briefcase,
+  CheckCircle2,
+  Clapperboard,
+  Code2,
+  Download,
+  Globe,
+  Mail,
+  MapPin,
+  Phone,
+  Star,
+  Quote,
+} from "lucide-react";
 import heroImg from "@/assets/hero-illustration.png";
 import aboutImg from "@/assets/about-illustration.png";
 import logoMark from "@/assets/logo-mark.png";
@@ -10,6 +24,7 @@ import { SkillCircle } from "@/components/skill-circle";
 import { WorkImageCard, workProjects } from "@/components/work-image-card";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { testimonialsData } from "@/lib/testimonials-data";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const stats = [
   { value: "15+", label: "Projects completed" },
@@ -44,7 +59,6 @@ const skills = [
   { name: "REST API", level: 90 },
   { name: "Responsive Design", level: 95 },
 ];
-
 
 const experience = [
   {
@@ -110,16 +124,29 @@ function Index() {
     <div className="pb-4">
       {/* HERO */}
       <section className="hero-stage relative overflow-hidden border-b border-border/60">
-        <span aria-hidden className="hero-arc absolute -top-32 left-[22%] h-64 w-[38rem] rounded-[50%] border border-primary/20" />
-        <span aria-hidden className="dot-grid pointer-events-none absolute left-0 top-14 h-28 w-20 opacity-50" />
-        <span aria-hidden className="dot-grid pointer-events-none absolute bottom-12 right-0 h-28 w-24 opacity-45" />
+        <span
+          aria-hidden
+          className="hero-arc absolute -top-32 left-[22%] h-64 w-[38rem] rounded-[50%] border border-primary/20"
+        />
+        <span
+          aria-hidden
+          className="dot-grid pointer-events-none absolute left-0 top-14 h-28 w-20 opacity-50"
+        />
+        <span
+          aria-hidden
+          className="dot-grid pointer-events-none absolute bottom-12 right-0 h-28 w-24 opacity-45"
+        />
         <div className="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-8 px-5 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
-          <div className="z-20 max-w-xl">
+          <ScrollReveal direction="left" className="z-20 max-w-xl">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-card/90 px-3.5 py-1.5 text-xs font-semibold text-foreground shadow-[var(--shadow-soft)] backdrop-blur transition-transform hover:scale-105">
               <img src={logoMark} alt="Web Craft Hub" className="h-4.5 w-auto dark:invert" />
               <div className="flex flex-col leading-tight text-left">
-                <span className="font-cinzel text-[10px] font-bold tracking-[0.16em] uppercase text-foreground">Web Craft</span>
-                <span className="font-cinzel text-[10px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">Hub</span>
+                <span className="font-cinzel text-[10px] font-bold tracking-[0.16em] uppercase text-foreground">
+                  Web Craft
+                </span>
+                <span className="font-cinzel text-[10px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">
+                  Hub
+                </span>
               </div>
               <span className="h-1 w-1 rounded-full bg-border" />
               <span className="flex items-center gap-1.5 text-[11px] font-medium text-primary">
@@ -138,25 +165,47 @@ function Index() {
               using modern technologies and best practices.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-12 rounded-full px-7 shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5">
-                <Link to="/work">View My Work <ArrowRight /></Link>
+              <Button
+                asChild
+                size="lg"
+                className="h-12 rounded-full px-7 shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5"
+              >
+                <Link to="/work">
+                  View My Work <ArrowRight />
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-primary/35 bg-card px-7 transition-transform hover:-translate-y-0.5">
-                <a href="mailto:acc.webcraffthub@gmail.com?subject=CV%20request">Request CV <Download className="text-primary" /></a>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-full border-primary/35 bg-card px-7 transition-transform hover:-translate-y-0.5"
+              >
+                <a href="mailto:acc.webcraffthub@gmail.com?subject=CV%20request">
+                  Request CV <Download className="text-primary" />
+                </a>
               </Button>
             </div>
             <div className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border">
               {stats.map((s) => (
                 <div key={s.label} className="px-4 first:pl-0">
                   <p className="text-2xl font-bold text-primary sm:text-3xl">{s.value}</p>
-                  <p className="mt-1 text-[10px] leading-4 text-muted-foreground sm:text-xs">{s.label}</p>
+                  <p className="mt-1 text-[10px] leading-4 text-muted-foreground sm:text-xs">
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="relative mx-auto w-full max-w-2xl pb-6 pt-8 lg:pb-0">
-            <span aria-hidden className="hero-sun absolute inset-x-[8%] bottom-[3%] top-[18%] rounded-[45%]" />
+          <ScrollReveal
+            direction="right"
+            delay={140}
+            className="relative mx-auto w-full max-w-2xl pb-6 pt-8 lg:pb-0"
+          >
+            <span
+              aria-hidden
+              className="hero-sun absolute inset-x-[8%] bottom-[3%] top-[18%] rounded-[45%]"
+            />
             <img
               src={heroImg}
               alt="Illustration of Mantuja Khan coding on a laptop in an orange bean bag chair"
@@ -170,11 +219,13 @@ function Index() {
                 style={{ animationDelay: `${i * 0.35}s` }}
                 className={`float-chip absolute z-20 hidden items-center gap-2 rounded-lg border border-border bg-card/95 px-3 py-2 text-[11px] font-semibold text-foreground shadow-[var(--shadow-chip)] backdrop-blur sm:inline-flex ${s.pos}`}
               >
-                <span className="flex h-6 min-w-6 items-center justify-center rounded bg-accent px-1 text-[10px] font-bold text-primary">{s.mark}</span>
+                <span className="flex h-6 min-w-6 items-center justify-center rounded bg-accent px-1 text-[10px] font-bold text-primary">
+                  {s.mark}
+                </span>
                 {s.name}
               </span>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -184,134 +235,193 @@ function Index() {
           aria-hidden
           className="dot-grid pointer-events-none absolute left-2 top-0 h-20 w-20 opacity-40"
         />
-        <img
-          src={aboutImg}
-          alt="Illustration of Mantuja Khan holding a coffee mug"
-          className="ken-burns w-full max-w-sm justify-self-center"
-        />
-        <div>
-          <SectionTitle eyebrow="About me" title="A little about me" />
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            I'm a full stack developer from Alwar, Rajasthan, working with the MERN stack since
-            2024. I enjoy turning ideas into clean, fast and accessible web products.
-          </p>
-          <ul className="mt-5 space-y-2.5">
-            {aboutPoints.map((p) => (
-              <li key={p} className="flex items-start gap-2.5 text-base text-muted-foreground">
-                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                {p}
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/about"
-            className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-          >
-            Read full story <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
+        <ScrollReveal direction="left" className="w-full max-w-sm justify-self-center">
+          <img
+            src={aboutImg}
+            alt="Illustration of Mantuja Khan holding a coffee mug"
+            className="ken-burns w-full max-w-sm justify-self-center"
+          />
+        </ScrollReveal>
+        <ScrollReveal direction="right" delay={120}>
+          <div>
+            <SectionTitle eyebrow="About me" title="A little about me" />
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              I'm a full stack developer from Alwar, Rajasthan, working with the MERN stack since
+              2024. I enjoy turning ideas into clean, fast and accessible web products.
+            </p>
+            <ul className="mt-5 space-y-2.5">
+              {aboutPoints.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 text-base text-muted-foreground">
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/about"
+              className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+            >
+              Read full story <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* SKILLS (short) */}
       <section className="mx-auto mt-24 max-w-6xl px-5">
-        <SectionTitle eyebrow="What I work with" title="Skills at a glance" />
+        <ScrollReveal direction="left">
+          <SectionTitle eyebrow="What I work with" title="Skills at a glance" />
+        </ScrollReveal>
         <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
-          {skills.map((s) => <SkillCircle key={s.name} name={s.name} level={s.level} />)}
+          {skills.map((s, index) => (
+            <ScrollReveal
+              key={s.name}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={(index % 6) * 50}
+            >
+              <SkillCircle name={s.name} level={s.level} />
+            </ScrollReveal>
+          ))}
         </div>
-        <Link
-          to="/skills"
-          className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-        >
-          See all skills <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        <ScrollReveal direction="left" delay={100}>
+          <Link
+            to="/skills"
+            className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+          >
+            See all skills <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </ScrollReveal>
       </section>
 
       {/* WORK (short) */}
       <section className="mx-auto mt-24 max-w-6xl px-5">
-        <SectionTitle eyebrow="Portfolio" title="Selected work" />
+        <ScrollReveal direction="left">
+          <SectionTitle eyebrow="Portfolio" title="Selected work" />
+        </ScrollReveal>
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {workProjects.map((p) => <WorkImageCard key={p.title} project={p} />)}
+          {workProjects.map((p, index) => (
+            <ScrollReveal
+              key={p.title}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={(index % 4) * 80}
+            >
+              <WorkImageCard project={p} />
+            </ScrollReveal>
+          ))}
         </div>
-        <Link
-          to="/work"
-          className="mt-9 inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-base font-semibold transition-colors hover:border-primary hover:text-primary"
-        >
-          View more work <ArrowRight className="h-4 w-4" />
-        </Link>
+        <ScrollReveal direction="left" delay={100}>
+          <Link
+            to="/work"
+            className="mt-9 inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-base font-semibold transition-colors hover:border-primary hover:text-primary"
+          >
+            View more work <ArrowRight className="h-4 w-4" />
+          </Link>
+        </ScrollReveal>
       </section>
 
       {/* EXPERIENCE (short) */}
       <section className="mx-auto mt-24 max-w-6xl px-5">
-        <SectionTitle eyebrow="Career" title="Experience so far" />
+        <ScrollReveal direction="left">
+          <SectionTitle eyebrow="Career" title="Experience so far" />
+        </ScrollReveal>
         <div className="mt-10 grid gap-10 md:grid-cols-2">
           {experience.map((e, i) => {
             const Icon = [Clapperboard, Globe, Briefcase, Code2][i % 4];
             return (
-              <div key={e.company} className="experience-step relative isolate flex gap-5">
-                <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary"><Icon className="h-7 w-7" /></span>
-                <div className="bg-background">
-                  <p className="text-xs font-semibold text-primary">{e.period}</p>
-                  <h3 className="mt-2 text-lg font-bold">{e.role}</h3>
-                  <p className="mt-1 text-sm font-semibold text-primary">{e.company}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.blurb}</p>
+              <ScrollReveal
+                key={e.company}
+                direction={i % 2 === 0 ? "left" : "right"}
+                delay={(i % 2) * 100}
+              >
+                <div className="experience-step relative isolate flex gap-5">
+                  <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                    <Icon className="h-7 w-7" />
+                  </span>
+                  <div className="bg-background">
+                    <p className="text-xs font-semibold text-primary">{e.period}</p>
+                    <h3 className="mt-2 text-lg font-bold">{e.role}</h3>
+                    <p className="mt-1 text-sm font-semibold text-primary">{e.company}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.blurb}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
-        <Link
-          to="/experience"
-          className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-        >
-          Full experience <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        <ScrollReveal direction="left" delay={100}>
+          <Link
+            to="/experience"
+            className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+          >
+            Full experience <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </ScrollReveal>
       </section>
 
       {/* TESTIMONIALS (short) */}
       <section className="mx-auto mt-24 max-w-6xl px-5">
-        <SectionTitle eyebrow="Client Feedback" title="What people say" />
+        <ScrollReveal direction="left">
+          <SectionTitle eyebrow="Client Feedback" title="What people say" />
+        </ScrollReveal>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 pt-4">
-          {testimonialsData.slice(0, 3).map((item) => (
-            <TestimonialCard key={item.id} item={item} />
+          {testimonialsData.slice(0, 3).map((item, index) => (
+            <ScrollReveal
+              key={item.id}
+              direction={index === 0 ? "left" : index === 1 ? "up" : "right"}
+              delay={index * 100}
+            >
+              <TestimonialCard item={item} />
+            </ScrollReveal>
           ))}
         </div>
-        <Link
-          to="/testimonials"
-          className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-        >
-          View all testimonials <ArrowUpRight className="h-4 w-4" />
-        </Link>
+        <ScrollReveal direction="left" delay={100}>
+          <Link
+            to="/testimonials"
+            className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+          >
+            View all testimonials <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </ScrollReveal>
       </section>
 
       {/* CONTACT (short) */}
       <section className="mx-auto mt-24 max-w-6xl px-5">
-        <SectionTitle eyebrow="Say hello" title="Get in touch" />
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Have a project in mind or just want to talk shop? I usually reply within a day.
-        </p>
-        <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-4 text-base">
-          <li className="flex items-center gap-2.5">
-            <Mail className="h-4 w-4 text-primary" />
-            <a href="mailto:acc.webcraffthub@gmail.com" className="transition-colors hover:text-primary">
-              acc.webcraffthub@gmail.com
-            </a>
-          </li>
-          <li className="flex items-center gap-2.5">
-            <Phone className="h-4 w-4 text-primary" />
-            <a href="tel:+917665556786" className="transition-colors hover:text-primary">
-              +91 76655 56786
-            </a>
-          </li>
-          <li className="flex items-center gap-2.5">
-            <MapPin className="h-4 w-4 text-primary" /> Alwar, Rajasthan
-          </li>
-        </ul>
-        <Link
-          to="/contact"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5"
-        >
-          Send a message <ArrowRight className="h-4 w-4" />
-        </Link>
+        <ScrollReveal direction="left">
+          <SectionTitle eyebrow="Say hello" title="Get in touch" />
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Have a project in mind or just want to talk shop? I usually reply within a day.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal direction="left" delay={100}>
+          <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-4 text-base">
+            <li className="flex items-center gap-2.5">
+              <Mail className="h-4 w-4 text-primary" />
+              <a
+                href="mailto:acc.webcraffthub@gmail.com"
+                className="transition-colors hover:text-primary"
+              >
+                acc.webcraffthub@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone className="h-4 w-4 text-primary" />
+              <a href="tel:+917665556786" className="transition-colors hover:text-primary">
+                +91 76655 56786
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <MapPin className="h-4 w-4 text-primary" /> Alwar, Rajasthan
+            </li>
+          </ul>
+        </ScrollReveal>
+        <ScrollReveal direction="right" delay={150}>
+          <Link
+            to="/contact"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:-translate-y-0.5"
+          >
+            Send a message <ArrowRight className="h-4 w-4" />
+          </Link>
+        </ScrollReveal>
       </section>
     </div>
   );

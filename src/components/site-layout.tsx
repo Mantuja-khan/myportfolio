@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { LetterReveal } from "@/components/letter-reveal";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 import logoMark from "@/assets/logo-mark.png";
 
@@ -110,8 +111,6 @@ export function TopCta() {
   );
 }
 
-
-
 export function SiteFooter() {
   return (
     <footer className="sculpted-footer relative mt-24 overflow-hidden bg-foreground text-background">
@@ -129,17 +128,26 @@ export function SiteFooter() {
       />
       <div className="relative border-b border-background/15">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest opacity-75">Have an idea in mind?</p>
-            <h2 className="mt-1 text-2xl font-bold uppercase sm:text-4xl">Let’s turn it into a working product.</h2>
-          </div>
-          <Link to="/contact" className="inline-flex w-fit shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5">
-            Start your project <ArrowRight className="h-4 w-4" />
-          </Link>
+          <ScrollReveal direction="left">
+            <p className="text-xs font-semibold uppercase tracking-widest opacity-75">
+              Have an idea in mind?
+            </p>
+            <h2 className="mt-1 text-2xl font-bold uppercase sm:text-4xl">
+              Let’s turn it into a working product.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={100}>
+            <Link
+              to="/contact"
+              className="inline-flex w-fit shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Start your project <ArrowRight className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
         </div>
       </div>
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-14 md:grid-cols-[1.2fr_0.7fr_1fr]">
-        <div>
+        <ScrollReveal direction="left">
           <Link to="/" className="inline-flex items-center gap-3 text-left">
             <img src={logoMark} alt="Web Craft Hub" className="h-10 w-auto invert" />
             <div className="flex flex-col leading-tight">
@@ -162,27 +170,32 @@ export function SiteFooter() {
           >
             Start a conversation <ArrowRight className="h-4 w-4" />
           </Link>
-        </div>
+        </ScrollReveal>
 
-        <div>
+        <ScrollReveal direction="up" delay={100}>
           <p className="text-xs font-semibold uppercase tracking-widest text-background">Explore</p>
           <nav className="mt-4 grid gap-3 text-sm text-background/70">
             {navItems.slice(1).map((item) => (
-              <Link key={item.to} to={item.to} className="w-fit transition-colors hover:text-primary">
+              <Link
+                key={item.to}
+                to={item.to}
+                className="w-fit transition-colors hover:text-primary"
+              >
                 {item.label}
               </Link>
             ))}
           </nav>
-        </div>
+        </ScrollReveal>
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-background">
-            Contact
-          </p>
+        <ScrollReveal direction="right" delay={150}>
+          <p className="text-xs font-semibold uppercase tracking-widest text-background">Contact</p>
           <ul className="mt-4 space-y-3 text-sm text-background/70">
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-primary" />
-              <a href="mailto:acc.webcraffthub@gmail.com" className="transition-colors hover:text-primary">
+              <a
+                href="mailto:acc.webcraffthub@gmail.com"
+                className="transition-colors hover:text-primary"
+              >
                 acc.webcraffthub@gmail.com
               </a>
             </li>
@@ -208,10 +221,11 @@ export function SiteFooter() {
               </a>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
       <div className="border-t border-background/15 px-5 py-5 text-center text-xs text-background/55">
-        © {new Date().getFullYear()} Web Craft Hub — A Marketing Agency. Designed &amp; built by Mantuja Khan.
+        © {new Date().getFullYear()} Web Craft Hub — A Marketing Agency. Designed &amp; built by
+        Mantuja Khan.
       </div>
     </footer>
   );
@@ -227,7 +241,7 @@ export function PageHeading({
   description?: string;
 }) {
   return (
-    <div className="mx-auto max-w-6xl px-5 pt-14">
+    <ScrollReveal direction="left" className="mx-auto max-w-6xl px-5 pt-14">
       {eyebrow && (
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</p>
       )}
@@ -239,6 +253,6 @@ export function PageHeading({
           {description}
         </p>
       )}
-    </div>
+    </ScrollReveal>
   );
 }

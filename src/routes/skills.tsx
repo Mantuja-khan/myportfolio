@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeading } from "@/components/site-layout";
 import { SkillCircle } from "@/components/skill-circle";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const technologies = [
   { name: "TypeScript", icon: "TS", level: 88 },
@@ -60,26 +61,42 @@ function SkillsPage() {
       />
 
       <section className="mx-auto mt-10 max-w-6xl px-5">
-        <h2 className="text-center text-sm font-bold uppercase tracking-widest text-primary">
-          Technologies
-        </h2>
+        <ScrollReveal direction="left">
+          <h2 className="text-center text-sm font-bold uppercase tracking-widest text-primary">
+            Technologies
+          </h2>
+        </ScrollReveal>
 
         <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-          {technologies.map((t) => <SkillCircle key={t.name} name={t.name} level={t.level} icon={t.icon} />)}
+          {technologies.map((t, index) => (
+            <ScrollReveal
+              key={t.name}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={(index % 4) * 60}
+            >
+              <SkillCircle name={t.name} level={t.level} icon={t.icon} />
+            </ScrollReveal>
+          ))}
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold tracking-tight underline-accent">Also working with</h2>
-          <div className="mt-7 flex flex-wrap gap-2.5">
-            {alsoUsing.map((a) => (
-              <span
-                key={a}
-                className="rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium transition-colors hover:border-primary"
-              >
-                {a}
-              </span>
-            ))}
-          </div>
+          <ScrollReveal direction="left">
+            <h2 className="text-2xl font-bold tracking-tight underline-accent">
+              Also working with
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={100}>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {alsoUsing.map((a) => (
+                <span
+                  key={a}
+                  className="rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium transition-colors hover:border-primary"
+                >
+                  {a}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

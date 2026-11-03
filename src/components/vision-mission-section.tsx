@@ -1,4 +1,5 @@
 import visionMissionRef from "@/assets/vision-mission-ref.png";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 /**
  * Vision and Mission section designed to match the user's reference image:
@@ -15,7 +16,7 @@ export function VisionMissionSection() {
   return (
     <section className="w-full mt-20 sm:mt-28" aria-labelledby="vision-mission-heading">
       {/* Top Header */}
-      <div className="w-full px-5 sm:px-10 lg:px-16 xl:px-24 pb-6">
+      <ScrollReveal direction="left" className="w-full px-5 sm:px-10 lg:px-16 xl:px-24 pb-6">
         <h2
           id="vision-mission-heading"
           className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
@@ -28,12 +29,13 @@ export function VisionMissionSection() {
           <span className="h-full w-8 rounded-full bg-[#9e5365]" />
           <span className="h-full w-14 rounded-full bg-[#409a80]" />
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Main Full-Width Visual Area */}
       <div className="relative w-full overflow-hidden min-h-[440px] sm:min-h-[460px] lg:min-h-[480px]">
         {/* Desktop Right-Side Photo: clipped along the exact diagonal slant line (64% top -> 38% bottom) */}
-        <div
+        <ScrollReveal
+          direction="right"
           className="absolute inset-0 hidden h-full w-full overflow-hidden lg:block pointer-events-none"
           style={{
             clipPath: "polygon(64% 0%, 100% 0%, 100% 100%, 38% 100%)",
@@ -51,12 +53,12 @@ export function VisionMissionSection() {
           />
           {/* Subtle depth gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/25" />
-        </div>
+        </ScrollReveal>
 
         {/* Desktop Left-Side Slanted Banners (lg and above) */}
         <div className="relative z-10 hidden lg:flex flex-col justify-center space-y-7 py-6 w-full">
           {/* 1. VISION BANNER */}
-          <div className="relative w-[63%]">
+          <ScrollReveal direction="left" className="relative w-[63%]">
             <div
               className="group relative flex items-center bg-[#409a80] py-7 pl-5 sm:pl-10 lg:pl-16 xl:pl-24 pr-24 text-white shadow-lg transition-transform duration-300 hover:translate-x-1"
               style={{
@@ -67,36 +69,15 @@ export function VisionMissionSection() {
                 <h3 className="text-3xl font-bold tracking-wide lg:text-4xl">Vision</h3>
                 <p className="mt-2 text-sm lg:text-base font-normal italic leading-relaxed text-emerald-50/95">
                   To craft accessible, high-performance web applications that empower businesses,
-                  simplify digital workflows, and deliver transformative user experiences across
-                  the modern web.
+                  simplify digital workflows, and deliver transformative user experiences across the
+                  modern web.
                 </p>
               </div>
             </div>
-
-            {/* Circular Eye Icon Badge centered precisely on the slant boundary line */}
-            {/* <div className="absolute -right-9 top-1/2 -translate-y-1/2 z-20">
-              <div className="flex h-20 w-20 xl:h-22 xl:w-22 items-center justify-center rounded-full border-4 border-background bg-[#409a80] text-white shadow-2xl transition-transform duration-300 hover:scale-105">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-10 w-10"
-                  aria-hidden="true"
-                >
-                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-                  <circle cx="12" cy="12" r="3.5" />
-                  <line x1="12" y1="12" x2="16" y2="8" strokeWidth="2" />
-                  <polyline points="13 8 16 8 16 11" strokeWidth="2" />
-                </svg>
-              </div>
-            </div> */}
-          </div>
+          </ScrollReveal>
 
           {/* 2. MISSION BANNER (shorter to follow the slant curve down-left) */}
-          <div className="relative w-[52%]">
+          <ScrollReveal direction="left" delay={130} className="relative w-[52%]">
             <div
               className="group relative flex items-center bg-[#9e5365] py-7 pl-5 sm:pl-10 lg:pl-16 xl:pl-24 pr-24 text-white shadow-lg transition-transform duration-300 hover:translate-x-1"
               style={{
@@ -107,23 +88,62 @@ export function VisionMissionSection() {
                 <h3 className="text-3xl font-bold tracking-wide lg:text-4xl">Mission</h3>
                 <p className="mt-2 text-sm lg:text-base font-normal italic leading-relaxed text-rose-50/95">
                   To bridge visionary design with resilient MERN engineering, delivering scalable,
-                  secure, and maintainable software with clean architecture and relentless client dedication.
+                  secure, and maintainable software with clean architecture and relentless client
+                  dedication.
                 </p>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
 
-            {/* Circular Summit/Flag Icon Badge centered precisely on the slant boundary line */}
-            {/* <div className="absolute -right-9 top-1/2 -translate-y-1/2 z-20">
-              <div className="flex h-20 w-20 xl:h-22 xl:w-22 items-center justify-center rounded-full border-4 border-background bg-[#9e5365] text-white shadow-2xl transition-transform duration-300 hover:scale-105">
+        {/* Mobile / Tablet View (< lg screens) */}
+        <div className="relative z-10 lg:hidden space-y-6 py-4 pr-6 sm:pr-10">
+          {/* Vision */}
+          <ScrollReveal direction="left" className="relative w-[92%] sm:w-[88%]">
+            <div className="rounded-r-3xl bg-[#409a80] py-6 pl-5 pr-14 text-white shadow-md">
+              <h3 className="text-2xl font-bold">Vision</h3>
+              <p className="mt-2 text-xs sm:text-sm font-normal italic leading-relaxed text-emerald-50/95">
+                To craft accessible, high-performance web applications that empower businesses,
+                simplify digital workflows, and deliver transformative user experiences across the
+                modern web.
+              </p>
+            </div>
+            <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-20">
+              <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-4 border-background bg-[#409a80] text-white shadow-xl">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-10 w-10"
-                  aria-hidden="true"
+                  className="h-7 w-7 sm:h-8 sm:w-8"
+                >
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3.5" />
+                  <line x1="12" y1="12" x2="16" y2="8" strokeWidth="2" />
+                  <polyline points="13 8 16 8 16 11" strokeWidth="2" />
+                </svg>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Mission */}
+          <ScrollReveal direction="right" delay={100} className="relative w-[86%] sm:w-[80%]">
+            <div className="rounded-r-3xl bg-[#9e5365] py-6 pl-5 pr-14 text-white shadow-md">
+              <h3 className="text-2xl font-bold">Mission</h3>
+              <p className="mt-2 text-xs sm:text-sm font-normal italic leading-relaxed text-rose-50/95">
+                To bridge visionary design with resilient MERN engineering, delivering scalable,
+                secure, and maintainable software with clean architecture and relentless client
+                dedication.
+              </p>
+            </div>
+            <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-20">
+              <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-4 border-background bg-[#9e5365] text-white shadow-xl">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  className="h-7 w-7 sm:h-8 sm:w-8"
                 >
                   <path d="M3 20l7-10 4 5 7-9" />
                   <path d="M3 20h18" />
@@ -132,57 +152,15 @@ export function VisionMissionSection() {
                   <path d="M14 9.5l3-2v3l-3 1" fill="currentColor" fillOpacity="0.3" />
                 </svg>
               </div>
-            </div> */}
-          </div>
-        </div>
-
-        {/* Mobile / Tablet View (< lg screens) */}
-        <div className="relative z-10 lg:hidden space-y-6 py-4 pr-6 sm:pr-10">
-          {/* Vision */}
-          <div className="relative w-[92%] sm:w-[88%]">
-            <div className="rounded-r-3xl bg-[#409a80] py-6 pl-5 pr-14 text-white shadow-md">
-              <h3 className="text-2xl font-bold">Vision</h3>
-              <p className="mt-2 text-xs sm:text-sm font-normal italic leading-relaxed text-emerald-50/95">
-                To craft accessible, high-performance web applications that empower businesses,
-                simplify digital workflows, and deliver transformative user experiences across the modern web.
-              </p>
             </div>
-            <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-20">
-              <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-4 border-background bg-[#409a80] text-white shadow-xl">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-7 w-7 sm:h-8 sm:w-8">
-                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-                  <circle cx="12" cy="12" r="3.5" />
-                  <line x1="12" y1="12" x2="16" y2="8" strokeWidth="2" />
-                  <polyline points="13 8 16 8 16 11" strokeWidth="2" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Mission */}
-          <div className="relative w-[86%] sm:w-[80%]">
-            <div className="rounded-r-3xl bg-[#9e5365] py-6 pl-5 pr-14 text-white shadow-md">
-              <h3 className="text-2xl font-bold">Mission</h3>
-              <p className="mt-2 text-xs sm:text-sm font-normal italic leading-relaxed text-rose-50/95">
-                To bridge visionary design with resilient MERN engineering, delivering scalable,
-                secure, and maintainable software with clean architecture and relentless client dedication.
-              </p>
-            </div>
-            <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-20">
-              <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border-4 border-background bg-[#9e5365] text-white shadow-xl">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-7 w-7 sm:h-8 sm:w-8">
-                  <path d="M3 20l7-10 4 5 7-9" />
-                  <path d="M3 20h18" />
-                  <circle cx="14" cy="7" r="1.5" fill="currentColor" />
-                  <path d="M14 8.5v3.5" />
-                  <path d="M14 9.5l3-2v3l-3 1" fill="currentColor" fillOpacity="0.3" />
-                </svg>
-              </div>
-            </div>
-          </div>
+          </ScrollReveal>
 
           {/* Mobile Graphic Strip */}
-          <div className="relative mt-6 h-52 w-full overflow-hidden rounded-2xl shadow-sm">
+          <ScrollReveal
+            direction="up"
+            delay={150}
+            className="relative mt-6 h-52 w-full overflow-hidden rounded-2xl shadow-sm"
+          >
             <img
               src={visionMissionRef}
               alt="Technology growth charts and connectivity visualization"
@@ -190,7 +168,7 @@ export function VisionMissionSection() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

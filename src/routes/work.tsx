@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeading } from "@/components/site-layout";
 import { WorkImageCard, workProjects } from "@/components/work-image-card";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -33,7 +34,15 @@ function WorkPage() {
       />
 
       <section className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4">
-        {workProjects.map((p) => <WorkImageCard key={p.title} project={p} />)}
+        {workProjects.map((p, index) => (
+          <ScrollReveal
+            key={p.title}
+            direction={index % 2 === 0 ? "left" : "right"}
+            delay={(index % 4) * 80}
+          >
+            <WorkImageCard project={p} />
+          </ScrollReveal>
+        ))}
       </section>
     </div>
   );
