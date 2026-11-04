@@ -140,7 +140,7 @@ function Index() {
           aria-hidden
           className="dot-grid pointer-events-none absolute bottom-12 right-0 h-28 w-24 opacity-45"
         />
-        <div className="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-8 px-5 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
+        <div className="relative w-full grid min-h-[640px] items-center gap-8 px-5 sm:px-10 lg:px-16 xl:px-24 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:py-14">
           <ScrollReveal direction="left" className="z-20 max-w-xl">
             <p className="mt-7 text-lg font-medium text-muted-foreground">Hi, I'm</p>
             <h1 className="mt-1 font-cursive text-5xl font-bold tracking-wide capitalize leading-[1.08] text-foreground sm:text-6xl lg:text-7xl">
@@ -218,7 +218,7 @@ function Index() {
       </section>
 
       {/* ABOUT (short) */}
-      <section className="relative mx-auto mt-20 grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
+      <section className="relative w-full mt-20 grid items-center gap-10 px-5 sm:px-10 lg:px-16 xl:px-24 md:grid-cols-2">
         <span
           aria-hidden
           className="dot-grid pointer-events-none absolute left-2 top-0 h-20 w-20 opacity-40"
@@ -256,7 +256,7 @@ function Index() {
       </section>
 
       {/* SKILLS (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
+      <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="What I work with" title="Skills at a glance" />
         </ScrollReveal>
@@ -282,7 +282,7 @@ function Index() {
       </section>
 
       {/* WORK (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
+      <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Portfolio" title="Selected work" />
         </ScrollReveal>
@@ -309,7 +309,7 @@ function Index() {
       </section>
 
       {/* EXPERIENCE (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-5">
+      <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Career" title="Experience so far" />
         </ScrollReveal>
@@ -348,7 +348,7 @@ function Index() {
       </section>
 
       {/* TESTIMONIALS (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
+      <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Client Feedback" title="What people say" />
         </ScrollReveal>
@@ -366,7 +366,7 @@ function Index() {
       </section>
 
       {/* CONTACT (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-5">
+      <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Say hello" title="Get in touch" />
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">

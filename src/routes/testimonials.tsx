@@ -39,15 +39,16 @@ function TestimonialsPage() {
       : testimonialsData.filter((t) => t.category === activeCategory);
 
   return (
-    <div>
+    <div className="w-full pb-16">
       <PageHeading
+        fullWidth
         eyebrow="Client Feedback"
         title="Testimonials"
         description="Authentic feedback and results from founders, companies, and teams I've partnered with to design, build, and deploy full-stack web applications."
       />
 
       {/* Trust metric badges */}
-      <section className="mx-auto mt-10 max-w-6xl px-5">
+      <section className="w-full mt-10 px-5 sm:px-10 lg:px-16 xl:px-24">
         <ScrollReveal direction="left">
           <div className="grid grid-cols-2 gap-4 rounded-2xl border border-border bg-card p-5 sm:grid-cols-4 sm:p-6 shadow-[var(--shadow-soft)]">
             <div className="border-r border-border/60 pr-3 last:border-0 sm:pr-4">
