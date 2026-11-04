@@ -440,6 +440,23 @@
   transition-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
 }
 
+/* Service phase numbers: image strictly clipped inside number only */
+.masked-digit {
+  display: inline-block;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  user-select: none;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.22));
+}
+
 .sculpted-footer {
   clip-path: polygon(0 45px, 65% 45px, 70% 0, 100% 0, 100% 100%, 0 100%);
   padding-top: 80px;

@@ -163,15 +163,19 @@ export const Route = createFileRoute("/services")({
 
 function ServicesPage() {
   return (
-    <div className="pb-16">
+    <div className="pb-16 w-full">
       <PageHeading
+        fullWidth
         eyebrow="What I can do"
         title="Services & Process"
         description="A proven four-stage methodology combined with technical precision to turn your vision into an exceptional, high-converting digital product."
       />
 
       {/* CORE 4 SERVICE PILLARS WITH IMAGE-MASKED NUMBERS MATCHING USER REFERENCE */}
-      <section className="mx-auto mt-12 max-w-6xl px-5" aria-label="Core Service Phases">
+      <section
+        className="w-full mt-12 px-5 sm:px-10 lg:px-16 xl:px-24"
+        aria-label="Core Service Phases"
+      >
         <div className="divide-y divide-border/70">
           {mainServicePillars.map((service) => (
             <article key={service.number} className="py-12 sm:py-16 lg:py-20 first:pt-4">
@@ -243,52 +247,6 @@ function ServicesPage() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      {/* SPECIALIZED CAPABILITIES GRID */}
-      <section className="mx-auto mt-20 max-w-6xl px-5">
-        <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)]">
-          <ScrollReveal direction="left" className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Full Suite Capabilities
-            </span>
-            <h2
-              className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
-              style={{ fontFamily: "'Cinzel', serif" }}
-            >
-              Specialized Digital Services
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-              From responsive frontend architectures and custom e-commerce engines to local Google
-              Maps presence and managed DNS hosting.
-            </p>
-          </ScrollReveal>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {specializedServices.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <ScrollReveal
-                  key={service.title}
-                  direction={index % 2 === 0 ? "left" : "right"}
-                  delay={(index % 4) * 60}
-                >
-                  <div className="group h-full rounded-2xl border border-border/70 bg-card p-5 transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="mt-4 text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
         </div>
       </section>
     </div>

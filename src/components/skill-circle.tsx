@@ -1,6 +1,16 @@
-export function SkillCircle({ name, level, icon }: { name: string; level: number; icon?: string }) {
+export function SkillCircle({
+  name,
+  level,
+  icon,
+  image,
+}: {
+  name: string;
+  level: number;
+  icon?: string;
+  image?: string;
+}) {
   return (
-    <div className="flex flex-col items-center gap-1.5 py-1.5 sm:gap-3 sm:py-3">
+    <div className="group flex flex-col items-center gap-1.5 py-1.5 sm:gap-3 sm:py-3">
       <div className="relative flex h-22 w-22 items-center justify-center xs:h-26 xs:w-26 sm:h-32 sm:w-32">
         <svg
           viewBox="0 0 100 100"
@@ -20,13 +30,27 @@ export function SkillCircle({ name, level, icon }: { name: string; level: number
             strokeDasharray={`${level} 100`}
           />
         </svg>
-        <span className="flex h-18 w-18 flex-col items-center justify-center rounded-full bg-accent text-primary xs:h-21 xs:w-21 sm:h-24 sm:w-24">
-          {icon && <span className="mb-0.5 text-base sm:mb-1 sm:text-xl font-bold">{icon}</span>}
-          <span className="text-[10px] font-semibold xs:text-[11px] sm:text-xs text-center px-1 truncate max-w-full">
-            {name}
-          </span>
+
+        {/* Inner Circle: displays technology image only (name removed from inside circle) */}
+        <span
+          title={name}
+          className="flex h-18 w-18 items-center justify-center rounded-full bg-accent text-primary transition-transform duration-300 group-hover:scale-105 xs:h-21 xs:w-21 sm:h-24 sm:w-24 p-3.5"
+        >
+          {image ? (
+            <img
+              src={image}
+              alt={name}
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow-xs"
+              loading="lazy"
+            />
+          ) : icon ? (
+            <span className="text-xl font-bold">{icon}</span>
+          ) : (
+            <span className="text-[11px] font-semibold">{name}</span>
+          )}
         </span>
       </div>
+
       <p className="text-base font-semibold text-primary sm:text-xl">
         {level}
         <span className="ml-0.5 text-[10px] sm:text-xs">%</span>

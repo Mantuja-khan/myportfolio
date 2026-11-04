@@ -46,13 +46,18 @@ export function WorkImageCard({
       target="_blank"
       rel="noreferrer"
       aria-label={`Open ${project.title} website`}
-      className={`work-a4 relative block aspect-[1/1.414] overflow-hidden bg-card outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring ${
+      className={`work-a4 relative block aspect-[1/1.414] overflow-hidden bg-card outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring rounded-none ${
         plain
           ? ""
-          : "rounded-xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)]"
+          : "border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)]"
       }`}
     >
-      <img src={project.image} alt={project.alt} loading="lazy" className="work-a4-img w-full" />
+      <img
+        src={project.image}
+        alt={project.alt}
+        loading="lazy"
+        className="work-a4-img w-full rounded-none"
+      />
     </a>
   );
 }

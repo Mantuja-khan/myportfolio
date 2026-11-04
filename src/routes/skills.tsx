@@ -3,19 +3,32 @@ import { PageHeading } from "@/components/site-layout";
 import { SkillCircle } from "@/components/skill-circle";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
+import tsImg from "@/assets/typescript.png";
+import nodeImg from "@/assets/nodejs.png";
+import expressImg from "@/assets/epressjs.png";
+import mongoImg from "@/assets/mongodb.png";
+import restapiImg from "@/assets/restapi.png";
+import responsiveImg from "@/assets/responsivedesign.png";
+import reactImg from "@/assets/react.png";
+import jsImg from "@/assets/javascript.png";
+import htmlImg from "@/assets/html5.png";
+import cssImg from "@/assets/css3.png";
+import gitImg from "@/assets/git.png";
+import githubImg from "@/assets/github.png";
+
 const technologies = [
-  { name: "TypeScript", icon: "TS", level: 88 },
-  { name: "Node.js", icon: "⬢", level: 85 },
-  { name: "Express.js", icon: "Ex", level: 85 },
-  { name: "MongoDB", icon: "🍃", level: 82 },
-  { name: "REST API", icon: "⇄", level: 90 },
-  { name: "Responsive Design", icon: "📱", level: 95 },
-  { name: "React", icon: "⚛", level: 90 },
-  { name: "JavaScript", icon: "JS", level: 88 },
-  { name: "HTML5", icon: "</>", level: 95 },
-  { name: "CSS3", icon: "#", level: 90 },
-  { name: "Git", icon: "⑂", level: 85 },
-  { name: "GitHub", icon: "◍", level: 85 },
+  { name: "TypeScript", level: 88, image: tsImg },
+  { name: "Node.js", level: 85, image: nodeImg },
+  { name: "Express.js", level: 85, image: expressImg },
+  { name: "MongoDB", level: 82, image: mongoImg },
+  { name: "REST API", level: 90, image: restapiImg },
+  { name: "Responsive Design", level: 95, image: responsiveImg },
+  { name: "React", level: 90, image: reactImg },
+  { name: "JavaScript", level: 88, image: jsImg },
+  { name: "HTML5", level: 95, image: htmlImg },
+  { name: "CSS3", level: 90, image: cssImg },
+  { name: "Git", level: 85, image: gitImg },
+  { name: "GitHub", level: 85, image: githubImg },
 ];
 
 const alsoUsing = [
@@ -74,7 +87,7 @@ function SkillsPage() {
               direction={index % 2 === 0 ? "left" : "right"}
               delay={(index % 4) * 60}
             >
-              <SkillCircle name={t.name} level={t.level} icon={t.icon} />
+              <SkillCircle name={t.name} level={t.level} image={t.image} />
             </ScrollReveal>
           ))}
         </div>

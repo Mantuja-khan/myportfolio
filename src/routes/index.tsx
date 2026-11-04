@@ -16,6 +16,12 @@ import heroImg from "@/assets/hero-illustration.png";
 import aboutImg from "@/assets/about-illustration.png";
 import logoMark from "@/assets/logo-mark.png";
 import logoMarkDark from "@/assets/logo-mark-dark.png";
+import tsImg from "@/assets/typescript.png";
+import nodeImg from "@/assets/nodejs.png";
+import expressImg from "@/assets/epressjs.png";
+import mongoImg from "@/assets/mongodb.png";
+import restapiImg from "@/assets/restapi.png";
+import responsiveImg from "@/assets/responsivedesign.png";
 import { LetterReveal } from "@/components/letter-reveal";
 import { RoleRotator } from "@/components/role-rotator";
 import { Button } from "@/components/ui/button";
@@ -50,12 +56,12 @@ const aboutPoints = [
 ];
 
 const skills = [
-  { name: "TypeScript", level: 88 },
-  { name: "Node.js", level: 85 },
-  { name: "Express.js", level: 85 },
-  { name: "MongoDB", level: 82 },
-  { name: "REST API", level: 90 },
-  { name: "Responsive Design", level: 95 },
+  { name: "TypeScript", level: 88, image: tsImg },
+  { name: "Node.js", level: 85, image: nodeImg },
+  { name: "Express.js", level: 85, image: expressImg },
+  { name: "MongoDB", level: 82, image: mongoImg },
+  { name: "REST API", level: 90, image: restapiImg },
+  { name: "Responsive Design", level: 95, image: responsiveImg },
 ];
 
 const experience = [
@@ -261,7 +267,7 @@ function Index() {
               direction={index % 2 === 0 ? "left" : "right"}
               delay={(index % 6) * 50}
             >
-              <SkillCircle name={s.name} level={s.level} />
+              <SkillCircle name={s.name} level={s.level} image={s.image} />
             </ScrollReveal>
           ))}
         </div>

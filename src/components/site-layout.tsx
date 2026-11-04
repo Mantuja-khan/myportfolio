@@ -227,13 +227,21 @@ export function PageHeading({
   eyebrow,
   title,
   description,
+  fullWidth = false,
+  className,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
+  fullWidth?: boolean;
+  className?: string;
 }) {
+  const containerClass =
+    className ??
+    (fullWidth ? "w-full px-5 sm:px-10 lg:px-16 xl:px-24 pt-14" : "mx-auto max-w-6xl px-5 pt-14");
+
   return (
-    <ScrollReveal direction="left" className="mx-auto max-w-6xl px-5 pt-14">
+    <ScrollReveal direction="left" className={containerClass}>
       {eyebrow && (
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">{eyebrow}</p>
       )}
@@ -241,7 +249,7 @@ export function PageHeading({
         <LetterReveal text={title.toUpperCase()} />
       </h1>
       {description && (
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {description}
         </p>
       )}

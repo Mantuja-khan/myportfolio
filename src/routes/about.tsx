@@ -53,10 +53,10 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   return (
-    <div className="pb-6">
-      <PageHeading eyebrow="Get to know me" title="About Me" />
+    <div className="w-full pb-16">
+      <PageHeading fullWidth eyebrow="Get to know me" title="About Me" />
 
-      <section className="mx-auto mt-10 grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
+      <section className="w-full mt-10 grid items-center gap-10 px-5 sm:px-10 lg:px-16 xl:px-24 md:grid-cols-2">
         <ScrollReveal direction="left">
           <div className="relative">
             <img

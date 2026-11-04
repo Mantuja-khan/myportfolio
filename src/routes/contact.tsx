@@ -72,14 +72,15 @@ function ContactPage() {
     `mt-2 w-full rounded-md border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:ring-2 focus:ring-ring/20 ${errors[field] ? "border-destructive" : "border-input focus:border-primary"}`;
 
   return (
-    <div>
+    <div className="w-full pb-16">
       <PageHeading
+        fullWidth
         eyebrow="Say hello"
         title="Contact"
         description="Have a project in mind or just want to talk shop? Drop a message and I'll get back to you."
       />
 
-      <section className="mx-auto mt-10 grid max-w-6xl gap-12 px-5 md:grid-cols-[0.8fr_1.2fr]">
+      <section className="w-full mt-10 grid gap-12 px-5 sm:px-10 lg:px-16 xl:px-24 lg:grid-cols-[0.7fr_1.3fr]">
         <ScrollReveal direction="left">
           <p className="max-w-md text-base leading-relaxed text-muted-foreground">
             Tell me what you are building, where you are stuck, and what success looks like. I

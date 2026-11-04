@@ -78,14 +78,15 @@ export const Route = createFileRoute("/experience")({
 
 function ExperiencePage() {
   return (
-    <div>
+    <div className="w-full pb-16">
       <PageHeading
+        fullWidth
         eyebrow="Career"
         title="Experience"
         description="Where I've worked and what I built along the way."
       />
 
-      <section className="mx-auto mt-12 grid max-w-6xl gap-12 px-5 md:grid-cols-2">
+      <section className="w-full mt-12 grid gap-10 px-5 sm:px-10 lg:px-16 xl:px-24 md:grid-cols-2">
         {roles.map((r, index) => {
           const Icon = [Clapperboard, Globe, Briefcase, Code2][index % 4];
           return (
