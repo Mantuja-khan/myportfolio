@@ -25,17 +25,17 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <div className="mx-auto flex h-18 sm:h-20 max-w-6xl items-center justify-between px-5">
         <Link to="/" data-brand-anchor className="flex items-center gap-2.5 py-1 text-left group">
           <img
             src={logoFull}
             alt="Web Craft Hub"
-            className="h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:hidden"
+            className="h-11 sm:h-13 w-auto transition-transform duration-300 group-hover:scale-105 dark:hidden"
           />
           <img
             src={logoFullDark}
             alt="Web Craft Hub"
-            className="hidden h-9 w-auto transition-transform duration-300 group-hover:scale-105 dark:block"
+            className="hidden h-11 sm:h-13 w-auto transition-transform duration-300 group-hover:scale-105 dark:block"
           />
         </Link>
 
@@ -149,7 +149,7 @@ export function SiteFooter() {
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-14 md:grid-cols-[1.2fr_0.7fr_1fr]">
         <ScrollReveal direction="left">
           <Link to="/" className="inline-flex items-center gap-3 text-left">
-            <img src={logoFullDark} alt="Web Craft Hub" className="h-10 w-auto" />
+            <img src={logoFullDark} alt="Web Craft Hub" className="h-14 sm:h-16 w-auto" />
           </Link>
           <h2 className="mt-6 text-2xl font-bold leading-snug md:text-3xl">
             Let's build something

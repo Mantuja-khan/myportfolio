@@ -107,12 +107,6 @@ export function BrandIntro() {
         }
       >
         {/* Top Content: glides down from above */}
-        <div className="content-enter-down mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary shadow-sm backdrop-blur">
-          <span className="h-2 w-2 rounded-full bg-primary animate-ping" />
-          <span className="font-bold tracking-wider uppercase">Web Craft Hub</span>
-          <span className="text-muted-foreground/60">•</span>
-          <span className="text-muted-foreground">Digital Products & Marketing</span>
-        </div>
 
         {/* LOGO FRAGMENT ASSEMBLY ARENA */}
         {/* All 4 piece PNGs share 1024x488 coordinates, snapping into 100% pixel-perfect union */}
@@ -167,11 +161,6 @@ export function BrandIntro() {
           <p className="text-xs font-bold tracking-[0.35em] uppercase text-muted-foreground sm:text-sm">
             A Marketing Agency
           </p>
-          <div className="mt-2.5 flex items-center gap-2.5 text-[11px] font-semibold text-primary">
-            <span className="h-1 w-7 rounded-full bg-primary" />
-            <span className="tracking-widest uppercase">Design • Development • Growth</span>
-            <span className="h-1 w-7 rounded-full bg-primary" />
-          </div>
         </div>
       </div>
     </div>

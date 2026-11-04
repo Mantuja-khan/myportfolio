@@ -11,8 +11,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Star,
-  Quote,
 } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.png";
 import aboutImg from "@/assets/about-illustration.png";
@@ -23,8 +21,7 @@ import { RoleRotator } from "@/components/role-rotator";
 import { Button } from "@/components/ui/button";
 import { SkillCircle } from "@/components/skill-circle";
 import { WorkImageCard, workProjects } from "@/components/work-image-card";
-import { TestimonialCard } from "@/components/testimonial-card";
-import { testimonialsData } from "@/lib/testimonials-data";
+import { TestimonialsInfiniteCarousel } from "@/components/testimonials-infinite-carousel";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const stats = [
@@ -139,27 +136,6 @@ function Index() {
         />
         <div className="relative mx-auto grid min-h-[640px] max-w-7xl items-center gap-8 px-5 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
           <ScrollReveal direction="left" className="z-20 max-w-xl">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-card/90 px-3.5 py-1.5 text-xs font-semibold text-foreground shadow-[var(--shadow-soft)] backdrop-blur transition-transform hover:scale-105">
-              <img src={logoMark} alt="Web Craft Hub" className="h-5 w-auto dark:hidden" />
-              <img
-                src={logoMarkDark}
-                alt="Web Craft Hub"
-                className="hidden h-5 w-auto dark:block"
-              />
-              <div className="flex flex-col leading-tight text-left">
-                <span className="font-cinzel text-[10px] font-bold tracking-[0.16em] uppercase text-foreground">
-                  Web Craft
-                </span>
-                <span className="font-cinzel text-[10px] font-black tracking-[0.22em] uppercase text-primary -mt-0.5">
-                  Hub
-                </span>
-              </div>
-              <span className="h-1 w-1 rounded-full bg-border" />
-              <span className="flex items-center gap-1.5 text-[11px] font-medium text-primary">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                Available for new projects
-              </span>
-            </div>
             <p className="mt-7 text-lg font-medium text-muted-foreground">Hi, I'm</p>
             <h1 className="mt-1 font-cursive text-5xl font-bold tracking-wide capitalize leading-[1.08] text-foreground sm:text-6xl lg:text-7xl">
               <LetterReveal text="Mantuja Khan" gradientWords={["Khan"]} />
@@ -274,11 +250,11 @@ function Index() {
       </section>
 
       {/* SKILLS (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-5">
+      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="What I work with" title="Skills at a glance" />
         </ScrollReveal>
-        <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-5 lg:grid-cols-6">
           {skills.map((s, index) => (
             <ScrollReveal
               key={s.name}
@@ -300,16 +276,17 @@ function Index() {
       </section>
 
       {/* WORK (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-5">
+      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Portfolio" title="Selected work" />
         </ScrollReveal>
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {workProjects.map((p, index) => (
             <ScrollReveal
               key={p.title}
               direction={index % 2 === 0 ? "left" : "right"}
               delay={(index % 4) * 80}
+              className="mx-auto w-full max-w-[195px] sm:max-w-none"
             >
               <WorkImageCard project={p} />
             </ScrollReveal>
@@ -365,25 +342,17 @@ function Index() {
       </section>
 
       {/* TESTIMONIALS (short) */}
-      <section className="mx-auto mt-24 max-w-6xl px-5">
+      <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-5">
         <ScrollReveal direction="left">
           <SectionTitle eyebrow="Client Feedback" title="What people say" />
         </ScrollReveal>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 pt-4">
-          {testimonialsData.slice(0, 3).map((item, index) => (
-            <ScrollReveal
-              key={item.id}
-              direction={index === 0 ? "left" : index === 1 ? "up" : "right"}
-              delay={index * 100}
-            >
-              <TestimonialCard item={item} />
-            </ScrollReveal>
-          ))}
+        <div className="mt-6">
+          <TestimonialsInfiniteCarousel />
         </div>
         <ScrollReveal direction="left" delay={100}>
           <Link
             to="/testimonials"
-            className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
+            className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
           >
             View all testimonials <ArrowUpRight className="h-4 w-4" />
           </Link>
