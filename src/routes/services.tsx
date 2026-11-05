@@ -184,17 +184,25 @@ function ServicesPage() {
                   service.reverse ? "md:flex-row-reverse" : "md:flex-row"
                 }`}
               >
-                {/* Text Content Side */}
+                {/* Text Content Side with Mobile Low-Light Watermark Number */}
                 <ScrollReveal
                   direction={service.reverse ? "right" : "left"}
-                  className="w-full md:w-1/2 flex flex-col justify-center"
+                  className="relative w-full md:w-1/2 flex flex-col justify-center"
                 >
-                  <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                  {/* Mobile background watermark number (low light so content shows properly) */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -top-3 right-0 z-0 select-none font-black text-8xl xs:text-9xl text-foreground/[0.08] dark:text-foreground/[0.12] leading-none md:hidden font-mono"
+                  >
+                    {service.number}
+                  </span>
+
+                  <span className="relative z-10 text-xs font-bold uppercase tracking-widest text-primary">
                     Phase {service.number}
                   </span>
 
                   <h2
-                    className="mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+                    className="relative z-10 mt-2 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
                     style={{ fontFamily: "'Cinzel', serif" }}
                   >
                     {service.title}
@@ -204,16 +212,16 @@ function ServicesPage() {
                   {service.hasAccentUnderline && (
                     <span
                       aria-hidden="true"
-                      className="mt-2 block h-1 w-14 rounded-full bg-amber-500/80"
+                      className="relative z-10 mt-2 block h-1 w-14 rounded-full bg-amber-500/80"
                     />
                   )}
 
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                  <p className="relative z-10 mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
 
                   {/* Key Deliverables Bullet Points */}
-                  <ul className="mt-6 space-y-2.5">
+                  <ul className="relative z-10 mt-6 space-y-2.5">
                     {service.deliverables.map((item) => (
                       <li
                         key={item}
@@ -226,11 +234,11 @@ function ServicesPage() {
                   </ul>
                 </ScrollReveal>
 
-                {/* Stylized Image-Masked Number Side */}
+                {/* Stylized Image-Masked Number Side (Desktop) */}
                 <ScrollReveal
                   direction={service.reverse ? "left" : "right"}
                   delay={120}
-                  className="w-full md:w-1/2 flex items-center justify-center"
+                  className="hidden md:flex w-full md:w-1/2 items-center justify-center"
                 >
                   <div className="relative group transition-transform duration-500 hover:scale-[1.03]">
                     <span

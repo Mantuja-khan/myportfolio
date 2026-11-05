@@ -22,6 +22,10 @@ import expressImg from "@/assets/epressjs.png";
 import mongoImg from "@/assets/mongodb.png";
 import restapiImg from "@/assets/restapi.png";
 import responsiveImg from "@/assets/responsivedesign.png";
+import ssLogo from "@/assets/company-ss.png";
+import metaLogo from "@/assets/company-meta.png";
+import prernaLogo from "@/assets/company-prerna.png";
+import vmLogo from "@/assets/company-vm.png";
 import { LetterReveal } from "@/components/letter-reveal";
 import { RoleRotator } from "@/components/role-rotator";
 import { Button } from "@/components/ui/button";
@@ -66,28 +70,34 @@ const skills = [
 
 const experience = [
   {
-    role: "Full Stack Developer",
+    role: "Full Stack Developer & Digital Marketer",
     company: "SS Production House",
     period: "Present",
-    blurb: "Currently working here, building and maintaining web projects end to end.",
+    logo: ssLogo,
+    blurb:
+      "Full-stack web development, digital marketing, ad campaigns (Meta & Google Ads), and social media post management.",
   },
   {
     role: "Web Developer",
     company: "Meta Web Kit · Alwar Bypass",
     period: "Freelance",
+    logo: metaLogo,
     blurb: "Took the firm's client projects through freelancing and delivered them full stack.",
   },
   {
     role: "Full Stack Developer",
     company: "Prerna Infotech",
     period: "Sep 2024 — Present",
+    logo: prernaLogo,
     blurb: "Building React interfaces and Node APIs for production products.",
   },
   {
-    role: "Frontend Developer",
+    role: "Frontend Developer & Digital Marketing",
     company: "VM Solutions",
     period: "Jan 2024 — Apr 2024",
-    blurb: "Delivered responsive MERN interfaces for client web platforms.",
+    logo: vmLogo,
+    blurb:
+      "Delivered responsive MERN interfaces, managed digital marketing, and handled social media post campaigns.",
   },
 ];
 
@@ -140,9 +150,9 @@ function Index() {
           aria-hidden
           className="dot-grid pointer-events-none absolute bottom-12 right-0 h-28 w-24 opacity-45"
         />
-        <div className="relative w-full grid min-h-[640px] items-center gap-8 px-5 sm:px-10 lg:px-16 xl:px-24 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:py-14">
-          <ScrollReveal direction="left" className="z-20 max-w-xl">
-            <p className="mt-7 text-lg font-medium text-muted-foreground">Hi, I'm</p>
+        <div className="relative w-full grid min-h-[640px] items-center gap-8 px-5 sm:px-10 lg:px-16 xl:px-24 py-8 lg:py-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <ScrollReveal direction="left" className="z-20 max-w-xl order-2 lg:order-1">
+            <p className="mt-4 lg:mt-7 text-lg font-medium text-muted-foreground">Hi, I'm</p>
             <h1 className="mt-1 font-cursive text-5xl font-bold tracking-wide capitalize leading-[1.08] text-foreground sm:text-6xl lg:text-7xl">
               <LetterReveal text="Mantuja Khan" gradientWords={["Khan"]} />
             </h1>
@@ -185,10 +195,11 @@ function Index() {
             </div>
           </ScrollReveal>
 
+          {/* Hero Illustration: displays on TOP on small screens (order-1), right on desktop (order-2) */}
           <ScrollReveal
             direction="right"
             delay={140}
-            className="relative mx-auto w-full max-w-2xl pb-6 pt-8 lg:pb-0"
+            className="relative mx-auto w-full max-w-2xl pb-4 pt-4 lg:pt-8 lg:pb-0 order-1 lg:order-2"
           >
             <span
               aria-hidden
@@ -205,11 +216,8 @@ function Index() {
               <span
                 key={s.name}
                 style={{ animationDelay: `${i * 0.35}s` }}
-                className={`float-chip absolute z-20 hidden items-center gap-2 rounded-lg border border-border bg-card/95 px-3 py-2 text-[11px] font-semibold text-foreground shadow-[var(--shadow-chip)] backdrop-blur sm:inline-flex ${s.pos}`}
+                className={`float-chip absolute z-20 inline-flex items-center rounded-full bg-card/90 px-3 py-1.5 text-[10px] sm:text-[11px] font-semibold text-foreground shadow-md backdrop-blur select-none ${s.pos}`}
               >
-                <span className="flex h-6 min-w-6 items-center justify-center rounded bg-accent px-1 text-[10px] font-bold text-primary">
-                  {s.mark}
-                </span>
                 {s.name}
               </span>
             ))}
@@ -322,11 +330,26 @@ function Index() {
                 direction={i % 2 === 0 ? "left" : "right"}
                 delay={(i % 2) * 100}
               >
-                <div className="experience-step relative isolate flex gap-5">
-                  <span className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                <div className="experience-step relative isolate flex gap-0 sm:gap-5 overflow-hidden rounded-2xl border-0 bg-card/60 p-5 sm:p-6 shadow-xs backdrop-blur-xs transition-all hover:shadow-md">
+                  {/* Low-light background company logo watermark */}
+                  {e.logo && (
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -bottom-6 right-6 sm:right-10 z-0 select-none opacity-[0.08] dark:opacity-[0.11] transition-opacity duration-300"
+                    >
+                      <img
+                        src={e.logo}
+                        alt=""
+                        className="h-36 w-36 sm:h-44 sm:w-44 object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  <span className="relative z-10 hidden sm:flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
                     <Icon className="h-7 w-7" />
                   </span>
-                  <div className="bg-background">
+                  <div className="relative z-10 min-w-0 w-full">
                     <p className="text-xs font-semibold text-primary">{e.period}</p>
                     <h3 className="mt-2 text-lg font-bold">{e.role}</h3>
                     <p className="mt-1 text-sm font-semibold text-primary">{e.company}</p>

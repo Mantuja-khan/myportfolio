@@ -12,24 +12,24 @@ interface Milestone {
 const educationMilestones: Milestone[] = [
   {
     number: "1",
-    title: "Secondary & Higher Secondary",
-    period: "Foundational Science & Mathematics",
+    title: "10th Secondary School",
+    period: "Tagore Sr. Sec. School · 2017 (74.17%)",
     description:
-      "Deep grounding in mathematical logic, analytical reasoning, and algorithmic problem-solving that ignited the passion for software development.",
+      "Completed 10th standard from Tagore Sr. Sec. School in 2017 with 74.17%, building a solid grounding in analytical reasoning, mathematics, and science.",
   },
   {
     number: "2",
-    title: "Bachelor's in Computer Science / IT",
-    period: "Undergraduate Computer Applications",
+    title: "12th Senior Secondary",
+    period: "Happy Convent School · 88.67%",
     description:
-      "Mastered Data Structures & Algorithms, Object-Oriented Programming, Relational Databases (SQL), Operating Systems, and Web Fundamentals.",
+      "Completed 12th standard with an outstanding 88.67% from Happy Convent School, excelling in Physics, Chemistry, and Advanced Mathematics.",
   },
   {
     number: "3",
-    title: "Full-Stack MERN Specialization",
-    period: "Advanced Web Engineering & Architecture",
+    title: "B.Tech in Computer Science / IT",
+    period: "MITRC College, Alwar · 6.9 CGPA",
     description:
-      "Specialized in modern React ecosystems, TypeScript, Node.js RESTful APIs, distributed state, and building 15+ production-ready web platforms.",
+      "Graduated with a Bachelor of Technology (B.Tech) from MITRC College, Alwar with 6.9 CGPA, mastering Software Engineering, Data Structures, and MERN full-stack development.",
   },
 ];
 
