@@ -10,7 +10,7 @@ export const Route = createFileRoute("/work")({
       {
         name: "description",
         content:
-          "Live websites delivered by Mantuja Khan: Bombay Dry Cleaners, Trivoxo Toys, Ojas Pharma and Aurevia Organics.",
+          "Websites delivered by Mantuja Khan: Bombay Dry Cleaners, Trivoxo Toys, Ojas Pharma, Aurevia Organics, Beneto, Desert Journey DXB, Prerna Vastu, Rengo Automotives, and Sunshine Opticals.",
       },
       { property: "og:title", content: "Selected Work — Mantuja Khan" },
       {
@@ -28,12 +28,13 @@ function WorkPage() {
   return (
     <div>
       <PageHeading
+        fullWidth
         eyebrow="Portfolio"
         title="Selected Work"
         description="Websites I've designed, built and shipped — click any preview to open the live site."
       />
 
-      <section className="mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="w-full mt-10 grid grid-cols-3 gap-2.5 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 px-5 sm:px-10 lg:px-16 xl:px-24">
         {workProjects.map((p, index) => (
           <ScrollReveal
             key={p.title}

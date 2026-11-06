@@ -291,36 +291,48 @@ function Index() {
 
       {/* WORK (short) */}
       <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
-        <ScrollReveal direction="left">
-          <SectionTitle eyebrow="Portfolio" title="Selected work" />
-        </ScrollReveal>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {workProjects.map((p, index) => (
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <ScrollReveal direction="left">
+            <SectionTitle eyebrow="Portfolio" title="Selected work" />
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <Link
+              to="/work"
+              className="inline-flex items-center gap-1.5 text-sm sm:text-base font-normal text-foreground hover:text-primary transition-colors"
+            >
+              View more work <ArrowRight className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
+        </div>
+        <div className="mt-8 grid grid-cols-3 gap-2.5 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+          {workProjects.slice(0, 6).map((p, index) => (
             <ScrollReveal
               key={p.title}
               direction={index % 2 === 0 ? "left" : "right"}
               delay={(index % 4) * 80}
-              className="mx-auto w-full max-w-[195px] sm:max-w-none"
+              className="mx-auto w-full"
             >
               <WorkImageCard project={p} />
             </ScrollReveal>
           ))}
         </div>
-        <ScrollReveal direction="left" delay={100}>
-          <Link
-            to="/work"
-            className="mt-9 inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-base font-semibold transition-colors hover:border-primary hover:text-primary"
-          >
-            View more work <ArrowRight className="h-4 w-4" />
-          </Link>
-        </ScrollReveal>
       </section>
 
       {/* EXPERIENCE (short) */}
       <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
-        <ScrollReveal direction="left">
-          <SectionTitle eyebrow="Career" title="Experience so far" />
-        </ScrollReveal>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <ScrollReveal direction="left">
+            <SectionTitle eyebrow="Career" title="Experience so far" />
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <Link
+              to="/experience"
+              className="inline-flex items-center gap-1.5 text-sm sm:text-base font-normal text-foreground hover:text-primary transition-colors"
+            >
+              View experience <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
+        </div>
         <div className="mt-10 grid gap-10 md:grid-cols-2">
           {experience.map((e, i) => {
             const Icon = [Clapperboard, Globe, Briefcase, Code2][i % 4];
@@ -331,16 +343,16 @@ function Index() {
                 delay={(i % 2) * 100}
               >
                 <div className="experience-step relative isolate flex gap-0 sm:gap-5 overflow-hidden rounded-2xl border-0 bg-card/60 p-5 sm:p-6 shadow-xs backdrop-blur-xs transition-all hover:shadow-md">
-                  {/* Low-light background company logo watermark */}
+                  {/* Company logo watermark - decreased size, clearly visible proper logo */}
                   {e.logo && (
                     <div
                       aria-hidden="true"
-                      className="pointer-events-none absolute -bottom-6 right-6 sm:right-10 z-0 select-none opacity-[0.08] dark:opacity-[0.11] transition-opacity duration-300"
+                      className="pointer-events-none absolute bottom-3 right-4 sm:bottom-4 sm:right-6 z-0 select-none opacity-[0.14] dark:opacity-[0.18] transition-opacity duration-300"
                     >
                       <img
                         src={e.logo}
                         alt=""
-                        className="h-36 w-36 sm:h-44 sm:w-44 object-contain"
+                        className="h-20 w-20 sm:h-24 sm:w-24 object-contain"
                         loading="lazy"
                       />
                     </div>
@@ -360,32 +372,26 @@ function Index() {
             );
           })}
         </div>
-        <ScrollReveal direction="left" delay={100}>
-          <Link
-            to="/experience"
-            className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-          >
-            Full experience <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </ScrollReveal>
       </section>
 
       {/* TESTIMONIALS (short) */}
       <section className="w-full mt-24 px-5 sm:px-10 lg:px-16 xl:px-24">
-        <ScrollReveal direction="left">
-          <SectionTitle eyebrow="Client Feedback" title="What people say" />
-        </ScrollReveal>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <ScrollReveal direction="left">
+            <SectionTitle eyebrow="Client Feedback" title="What people say" />
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <Link
+              to="/testimonials"
+              className="inline-flex items-center gap-1.5 text-sm sm:text-base font-normal text-foreground hover:text-primary transition-colors"
+            >
+              View all testimonials <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
+        </div>
         <div className="mt-6">
           <TestimonialsInfiniteCarousel />
         </div>
-        <ScrollReveal direction="left" delay={100}>
-          <Link
-            to="/testimonials"
-            className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5"
-          >
-            View all testimonials <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </ScrollReveal>
       </section>
 
       {/* CONTACT (short) */}
